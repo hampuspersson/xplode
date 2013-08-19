@@ -19,7 +19,8 @@ class CreateResultsTable extends Migration {
 			$table->integer('drill_id');
 			$table->integer('program_id');
 			$table->timestamp('date');
-			$table->string('reps');
+			$table->integer('weight');
+			$table->integer('reps');
 			$table->timestamps();
 			$table->softDeletes();
 		});
