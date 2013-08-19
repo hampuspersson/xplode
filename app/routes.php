@@ -11,7 +11,23 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', array( 'before' => 'auth', function() {
+	return View::make('dashboard');
+}));
+
+Route::get('login', function() {
+	return View::make('login');
+});
+
+Route::post('login', function() {
+	$userdata = array(
+		'email' => Input::get('email'),
+		'password' => Input::get('password')
+	);
+
+	if (Auth::attempt($userdata)) {
+		return Redirect::to('/');
+	} else {
+		echo "That didn't work";
+	}
 });
