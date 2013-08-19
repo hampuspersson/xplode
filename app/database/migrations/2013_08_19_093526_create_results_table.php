@@ -15,7 +15,13 @@ class CreateResultsTable extends Migration {
 		Schema::create('results', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->integer('user_id');
+			$table->integer('drill_id');
+			$table->integer('program_id');
+			$table->timestamp('date');
+			$table->string('reps');
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

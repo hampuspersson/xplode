@@ -15,7 +15,11 @@ class CreateDrillsTable extends Migration {
 		Schema::create('drills', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('title', 100);
+			$table->string('description');
+			$table->string('video');
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

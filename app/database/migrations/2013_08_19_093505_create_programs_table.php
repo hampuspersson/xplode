@@ -15,7 +15,11 @@ class CreateProgramsTable extends Migration {
 		Schema::create('programs', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->string('drills');
+			$table->string('dates');
+			$table->string('users');
 			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 
