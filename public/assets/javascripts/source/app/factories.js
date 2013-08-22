@@ -99,20 +99,19 @@ xplodeApp.factory('$utilities', function() {
 
 	return {
 		getTime: function(timestamp) {
-			var timestamp = timestamp || new Date().getTime(),
-				date = new Date(timestamp);
+			timestamp = timestamp || new Date().getTime();
+			var date = new Date(timestamp);
 
 			var obj = {
 				'year'		: date.getFullYear(),
 				'month'		: addZero(date.getMonth() + 1),
-				'day' 		: addZero(date.getDate()),
+				'day'		: addZero(date.getDate()),
 				'hours'		: addZero(date.getHours()),
 				'minutes'	: addZero(date.getMinutes()),
 				'seconds'	: addZero(date.getSeconds())
-
-			}
+			};
 
 			return obj.year + "-" + obj.month + "-" + obj.day + " " + obj.hours + ":" + obj.minutes + ":" + obj.seconds;
 		}
 	};
-})
+});

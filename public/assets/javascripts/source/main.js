@@ -33,9 +33,3 @@ xplodeApp.config(function( $routeProvider ) {
 			templateUrl: 'partials/add-drill.html'
 		});
 });
-
-xplodeApp.session = {
-	'user': '',
-	'program': '',
-	'drill': ''
-}
