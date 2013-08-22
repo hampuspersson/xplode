@@ -18,7 +18,6 @@ class CreateResultsTable extends Migration {
 			$table->integer('user_id');
 			$table->integer('drill_id');
 			$table->integer('program_id');
-			$table->timestamp('date');
 			$table->integer('weight');
 			$table->integer('reps');
 			$table->timestamps();
