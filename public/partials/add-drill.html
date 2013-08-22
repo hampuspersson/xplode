@@ -1,0 +1,17 @@
+<a href="/#/program/{{program.id}}">Tillbaka till programmet</a>
+<h1>{{drill.title}}</h1>
+<p>{{user.name}}</p>
+<p>{{program.title}}</p>
+<h2>Registrera nytt set</h2>
+<form data-ng-submit="addSet()">
+	<label for="inputReps">Reps</label>
+	<input type="number" id="inputReps" data-ng-model="drillReps">
+	<label for="inputWeight">Vikt</label>
+	<input type="number" id="inputWeight" data-ng-model="drillWeight">
+	<input type="submit" value="Registrera">
+</form>
+<hr>
+<h2>Dina tidigare set</h2>
+<ul>
+	<li data-ng-repeat="rep in reps | orderBy:'created_at':true">{{rep.reps}}x{{rep.weight}} kg ({{rep.created_at}})</li>
+</ul>

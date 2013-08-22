@@ -1,0 +1,8 @@
+<div class="program">
+	<a href="/#/">Tillbaka till översikt</a>
+	<h3>{{user.name}}</h3>
+	<h1>{{program.title}}</h1>
+	<ul data-ng-repeat="(id, drill) in programDrills">
+		<li><a href="/#/drill/{{id}}/add">{{drill.title}} ({{drill.sets}}x{{drill.reps}})</a></li>
+	</ul>
+</div>
