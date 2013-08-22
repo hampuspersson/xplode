@@ -13,8 +13,8 @@ module.exports = function(grunt) {
 				tasks: ['jshint', 'uglify:main']
 			},
 			scss: {
-				  files: 'assets/scss/**/*.scss',
-				  tasks: ['sass:dev']
+				files: 'assets/scss/**/*.scss',
+				tasks: ['sass:dev']
 			},
 			livereload: {
 				options: { livereload: true },
@@ -22,25 +22,26 @@ module.exports = function(grunt) {
 			}
 		},
 
-		sass: {                              // Task
-			dist: {                            // Target
-			  options: {
-				style: 'compressed',
-			  },
-			  files: {                         // Dictionary of files
-				'build/assets/css/style.css': 'assets/scss/style.scss',       // 'destination': 'source'
-			  }
+		sass: {
+			dist: {
+				options: {
+					style: 'compressed',
+				},
+				files: {                         // Dictionary of files
+					'build/assets/css/style.css': 'assets/scss/style.scss',       // 'destination': 'source'
+				}
 			},
+
 			dev: {                             // Another target
-			  options: {                       // Target options
+				options: {                       // Target options
 				style: 'expanded',
 				sourcemap: 'map/style.css.map'
-			  },
-			  files: {
-				'assets/css/style.css': 'assets/scss/style.scss',
-			  }
+			},
+				files: {
+					'assets/css/style.css': 'assets/scss/style.scss',
+				}
 			}
-		  },
+		},
 
 		// javascript linting with jshint
 		jshint: {
@@ -65,14 +66,16 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'assets/javascripts/main.min.js': [
-						'assets/javascripts/source/main.js'
+						'assets/javascripts/source/main.js',
+						'assets/javascripts/source/app/factories.js',
+						'assets/javascripts/source/app/controllers.js'
 					]
 				}
 			},
 
 			dist: {
 				options: {
-				  mangle: false
+					mangle: false
 				},
 				files: {
 					'build/assets/javascripts/main.min.js': [
@@ -99,15 +102,15 @@ module.exports = function(grunt) {
 		},
 
 		'ftp-deploy': {
-		  dist: {
-			auth: {
-			  host: '',
-			  port: 21,
-			  authKey: 'key1' // key1 is set in .ftppass
-			},
-			src: 'build/',
-			dest: '',
-		  }
+			dist: {
+				auth: {
+					host: '',
+					port: 21,
+					authKey: 'key1' // key1 is set in .ftppass
+				},
+				src: 'build/',
+				dest: '',
+			}
 		},
 
 
