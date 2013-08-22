@@ -85,6 +85,18 @@ class DrillTableSeeder extends Seeder {
 			'description' => 'Böj på knäna och sträck sedan',
 			'video' => 'http://www.youtube.com/watch?v=Dy28eq2PjcM'
 		));
+
+		Drill::create(array(
+			'title' => 'Marklyft',
+			'description' => 'Böj på knän, ta tag i stången och dra',
+			'video' => 'http://www.youtube.com/watch?v=Dy28eq2PjcM'
+		));
+
+		Drill::create(array(
+			'title' => 'Frivändning',
+			'description' => 'This is some complex shit!',
+			'video' => 'http://www.youtube.com/watch?v=Dy28eq2PjcM'
+		));
 	}
 }
 
@@ -95,10 +107,30 @@ class ProgramTableSeeder extends Seeder {
 		DB::table('programs')->delete();
 
 		Program::create(array(
-			'title' => 'Bas för gym',
-			'drills' => json_encode(array( array('drill'=>0, 'sets' => 3, 'reps' => 8), array('drill'=>1,'sets'=>3,'reps'=>8) )),
-			'dates' => json_encode(array('start' => '20130901', 'stop' => '20131231')),
-			'users' => json_encode(array(0,1))
+			'title' => 'Basövningar',
+			'drills' => json_encode(array(
+				array('drill'=>1, 'sets' => 3, 'reps' => 8),
+				array('drill'=>2,'sets'=>3,'reps'=>8) )
+			),
+			'dates' => json_encode(array(
+				'start' => '20130901',
+				'stop' => '20131231'
+			)),
+			'users' => json_encode(array(2))
+		));
+
+		Program::create(array(
+			'title' => 'Tynglyftning',
+			'drills' => json_encode(array(
+				array('drill'=>2, 'sets' => 5, 'reps' => 3),
+				array('drill'=>3,'sets'=>6,'reps'=>3),
+				array('drill'=>4,'sets'=>4,'reps'=>3) )
+			),
+			'dates' => json_encode(array(
+				'start' => '20130901',
+				'stop' => '20131231'
+			)),
+			'users' => json_encode(array(1))
 		));
 	}
 }
@@ -110,55 +142,121 @@ class ResultTableSeeder extends Seeder {
 		DB::table('results')->delete();
 
 		Result::create(array(
-			'user_id' => 0,
-			'drill_id' => 0,
+			'user_id' => 1,
+			'drill_id' => 1,
 			'program_id' => 0,
-			'date' => time(),
 			'weight' => 60,
 			'reps' => 10
 		));
 
 		Result::create(array(
-			'user_id' => 0,
-			'drill_id' => 0,
+			'user_id' => 1,
+			'drill_id' => 1,
 			'program_id' => 0,
-			'date' => time(),
 			'weight' => 60,
 			'reps' => 9
 		));
 
 		Result::create(array(
-			'user_id' => 0,
-			'drill_id' => 0,
+			'user_id' => 1,
+			'drill_id' => 1,
 			'program_id' => 0,
-			'date' => time(),
 			'weight' => 60,
 			'reps' => 8
 		));
 
 		Result::create(array(
 			'user_id' => 1,
-			'drill_id' => 1,
+			'drill_id' => 2,
 			'program_id' => 0,
-			'date' => time(),
 			'weight' => 90,
 			'reps' => 8
 		));
 
 		Result::create(array(
 			'user_id' => 1,
-			'drill_id' => 1,
+			'drill_id' => 2,
 			'program_id' => 0,
-			'date' => time(),
 			'weight' => 90,
 			'reps' => 9
 		));
 
 		Result::create(array(
 			'user_id' => 1,
-			'drill_id' => 1,
+			'drill_id' => 2,
 			'program_id' => 0,
-			'date' => time(),
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 2,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 2,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 2,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 3,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 3,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 3,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 4,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 4,
+			'program_id' => 1,
+			'weight' => 90,
+			'reps' => 7
+		));
+
+		Result::create(array(
+			'user_id' => 0,
+			'drill_id' => 4,
+			'program_id' => 1,
 			'weight' => 90,
 			'reps' => 7
 		));
