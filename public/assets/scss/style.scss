@@ -16,11 +16,24 @@
 /*-------------------------------------------------------------------------
 | VARIABLES
 |------------------------------------------------------------------------*/
-$base-font-size: 16px;
+$base-font-size: 16;
 $max-width: em(1200, $base-font-size);
 
 /* COLORS */
+/* $color-darkblue: #183845;
+$color-greyblue: #25576B;
+$color-blue: #317792;
+$color-grey: #7B7B7B;
+$color-lightgrey: #949494; */
 
+$color-darkpurple: #271948;
+$color-greypurple: #3C266F;
+$color-purple: #503296;
+$color-grey: #7D7D7D;
+$color-lightgrey: #979797;
+
+$color-primary: $color-purple;
+$color-secondary: $color-lightgrey;
 
 /* BREAKPOINTS */
 $kiddo: new-breakpoint(min-width em(480, $base-font-size) 4);
@@ -32,3 +45,7 @@ $senior: new-breakpoint(min-width em(1230, $base-font-size) 12);
 |------------------------------------------------------------------------*/
 
 @import "base";
+
+@import "atoms/input";
+
+@import "modules/login-form";

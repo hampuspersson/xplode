@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Xplode your performance</title>
+	<link rel="stylesheet" href="assets/css/style.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
 	<script>

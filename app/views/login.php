@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Xplode - Logga in</title>
+		<link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body class="login">
 		<div class="login-form">

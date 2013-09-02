@@ -1,12 +1,14 @@
-<a href="/logout">Logga ut</a>
-<h1 data-ng-show="user">{{user.firstName}}, may the force be with you!</h1>
-<div class="programs">
-	<h3>Dina aktiva program:</h3>
-	<ul data-ng-repeat="program in programs" data-ng-show="programs">
-		<li><a href="/#/program/{{program.id}}">{{program.title}}</a></li>
-	</ul>
-	<h3>Dina max</h3>
-	<ul data-ng-repeat="(id,max) in user['max']" data-ng-show="user">
-		<li>{{ drills[id+1].title }}: {{max}} kg</li>
-	</ul>
-</div>
+<section class="dashboard">
+	<a href="/logout">Logga ut</a>
+	<h1 data-ng-show="user">{{user.firstName}}, may the force be with you!</h1>
+	<div class="programs">
+		<h3>Dina aktiva program:</h3>
+		<ul data-ng-repeat="program in programs" data-ng-show="programs">
+			<li><a href="/#/program/{{program.id}}">{{program.title}}</a></li>
+		</ul>
+		<h3>Dina max</h3>
+		<ul data-ng-repeat="(id,max) in user['max']" data-ng-show="user">
+			<li>{{ drills[id+1].title }}: {{max}} kg</li>
+		</ul>
+	</div>
+</section>
