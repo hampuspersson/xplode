@@ -12,7 +12,7 @@ class ProgramController extends \BaseController {
 		$all_programs = Program::all()->toArray();
 
 		if( isset($_GET['user']) ) {
-			$user = ["programs" => []];
+			$user = array("programs" => array());
 			foreach( $all_programs as $program ) {
 				if( in_array('1', json_decode($program['users'])) ) {
 					$user["programs"][] = $program;
@@ -53,6 +53,20 @@ class ProgramController extends \BaseController {
 	public function show($id)
 	{
 		$program = Program::find($id)->toArray();
+
+		$days = json_decode($program['days']);
+
+		foreach( $days as $day ) {
+			foreach( $day->drills as $drill ) {
+				$temp = Drill::find($drill->drill);
+				$drill->id = $temp->id;
+				$drill->title = $temp->title;
+				$drill->desc = $temp->description;
+				$drill->video = $temp->video;
+			}
+		}
+
+		$program['days'] = json_encode($days);
 
 		return $program;
 	}

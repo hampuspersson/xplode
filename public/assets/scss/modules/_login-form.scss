@@ -1,0 +1,23 @@
+/*-------------------------------------------------------------------------
+| STYLING FOR LOGIN FORM
+|------------------------------------------------------------------------*/
+
+.login-form {
+	margin-top: 1em;
+
+	> h1 {
+		margin: 0;
+		font-size: 4em;
+		text-align: center;
+	}
+
+	input {
+		width: 100%;
+		margin-top: .7em;
+		border-radius: 0;
+
+		&[type=submit] {
+			background-color: $color-secondary-b-1;
+		}
+	}
+}

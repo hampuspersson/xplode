@@ -8,7 +8,12 @@
  * Setup imports and frameworks
  */
 
+@import "../components/normalize-css/normalize";
 @import "../components/bourbon/bourbon";
+
+$base-font-size: 16;
+$max-width: em(1200, $base-font-size);
+
 @import "../components/neat/neat";
 @import "../components/sassylicious/mixins";
 
@@ -16,8 +21,7 @@
 /*-------------------------------------------------------------------------
 | VARIABLES
 |------------------------------------------------------------------------*/
-$base-font-size: 16;
-$max-width: em(1200, $base-font-size);
+
 
 /* COLORS */
 /* $color-darkblue: #183845;
@@ -26,13 +30,32 @@ $color-blue: #317792;
 $color-grey: #7B7B7B;
 $color-lightgrey: #949494; */
 
+$color-primary-1: #6C0AAB;
+$color-primary-2: #631E8F;
+$color-primary-3: #520583;
+$color-primary-4: #8A2AC7;
+$color-primary-5: #9443C7;
+
+$color-secondary-a-1: #A5EF00;
+$color-secondary-a-2: #94C821;
+$color-secondary-a-3: #7FB800;
+$color-secondary-a-4: #B5F428;
+$color-secondary-a-5: #BFF449;
+
+$color-secondary-b-1: #FFD100;
+$color-secondary-b-2: #D5B523;
+$color-secondary-b-3: #C4A000;
+$color-secondary-b-4: #FFD82A;
+$color-secondary-b-5: #FFDE4C;
+
+
 $color-darkpurple: #271948;
 $color-greypurple: #3C266F;
 $color-purple: #503296;
 $color-grey: #7D7D7D;
 $color-lightgrey: #979797;
 
-$color-primary: $color-purple;
+$color-primary: $color-primary-1;
 $color-secondary: $color-lightgrey;
 
 /* BREAKPOINTS */
@@ -47,5 +70,14 @@ $senior: new-breakpoint(min-width em(1230, $base-font-size) 12);
 @import "base";
 
 @import "atoms/input";
+@import "atoms/links";
+@import "atoms/section";
+@import "atoms/lists";
+@import "atoms/headings";
 
+@import "modules/header";
 @import "modules/login-form";
+@import "modules/transparent-input";
+@import "modules/choices";
+
+@import "pages/add-drill"

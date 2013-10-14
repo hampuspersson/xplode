@@ -1,0 +1,40 @@
+{
+  "name": "Xplode",
+  "version": "1.0.0",
+  "authors": [
+    "Hampus Persson <hampus@hampuspersson.se>"
+  ],
+  "description": "Log and track your workouts",
+  "main": "index.php",
+  "keywords": [
+    "workout",
+    "gym",
+    "log",
+    "track",
+    "analyze"
+  ],
+  "license": "MIT",
+  "homepage": "hampuspersson.se",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Angular-localStorage": "git://github.com/agrublev/Angular-localStorage.git",
+    "angular-resource": "git://github.com/angular/bower-angular-resource.git#~1.0.7",
+    "fitvids": "git://github.com/davatron5000/FitVids.js.git#~1.0.3",
+    "normalize-css": "~2.1.3",
+    "angular": "v1.2.0-rc.1"
+  },
+  "resolutions": {
+    "angular": "v1.2.0-rc.1"
+  },
+  "devDependencies": {
+    "fastclick": "~0.6.10",
+    "angular-route": "~1.2.0-rc.2"
+  }
+}

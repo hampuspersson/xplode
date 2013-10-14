@@ -9,8 +9,8 @@ class ResultController extends \BaseController {
 	 */
 	public function index()
 	{
-		if( isset($_GET['drill'] )) {
-			$sets = Result::where('drill_id', '=', $_GET['drill'])->take(10)->orderBy('created_at', 'DESC')->get()->toArray();
+		if( isset($_GET['drill']) && isset($_GET['user']) ) {
+			$sets = Result::where('user_id', '=', $_GET['user'])->where('drill_id', '=', $_GET['drill'])->take(10)->orderBy('created_at', 'DESC')->get()->toArray();
 			return $sets;
 		}
 	}

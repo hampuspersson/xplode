@@ -2,10 +2,10 @@
 <html lang="en" data-ng-app="xplodeApp">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>Xplode your performance</title>
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.0-rc.2/angular.min.js"></script>
 	<script>
 		/* Fallback if the Google CDN is not available. */
 		if (typeof jQuery == 'undefined') {
@@ -17,10 +17,8 @@
 		}
 
 	</script>
-	<script src="assets/components/angular-resource/angular-resource.min.js"></script>
-	<script src="assets/components/angular-cookies/angular-cookies.min.js"></script>
-	<script src="assets/components/Angular-localStorage/src/localStorage.js"></script>
-	<script src="assets/javascripts/main.min.js"></script>
+	<script src="assets/javascripts/vendors.min.js"></script>
+	<script src="assets/javascripts/main.min.js?v=1.112"></script>
 </head>
 <body data-ng-view=""></body>
 </html>

@@ -1,0 +1,29 @@
+/*-------------------------------------------------------------------------
+| STYLING FOR THE ADD DRILL PAGE
+|------------------------------------------------------------------------*/
+
+.add-set {
+
+	.transparent-input {
+		float: left;
+		width: 50%;
+	}
+
+	input[type=submit] {
+		margin: 1em 0;
+		width: 100%;
+		background-color: $color-secondary-b-1;
+
+		&:hover, &:focus {
+			background-color: $color-secondary-b-3;
+		}
+
+		&.sending {
+			background-color: #ccc;
+		}
+
+		&.success {
+			background-color: $color-secondary-a-1;
+		}
+	}
+}

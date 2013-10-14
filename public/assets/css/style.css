@@ -1,0 +1,757 @@
+@charset "UTF-8";
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ * Setup imports and frameworks
+ */
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
+ */
+[hidden],
+template {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+a {
+  background: transparent;
+}
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*-------------------------------------------------------------------------
+| Handy mixins for SASS
+|
+| @author: Hampus Persson
+|
+| Credit to HTML5 Boilerplate, Foundation by Zurb & Inuit.css
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| HIDDEN
+| Hides an element from both display and screenreaders.
+| h5bp.com/u
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| VISUALLY HIDDEN
+| Hides an element from display but leaves it visible for screenreaders.
+| h5bp.com/v
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| BLOCK GRID
+| Generates a block-grid of li-elements.
+| VARIABLES:
+| $per-row: How many items should sit in each row. (int)
+| $spacing: The spacing between li-blocks (px/em)
+| $base-style: Should the mixin apply base styling to the blocks? (bool)
+| $default-float: Float direction of the block items. (right/left)
+|
+| Original version from Foundation by ZURB.
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| MEDIA OBJECT
+| Mixin to create an instance of Nicole Sullivans media object.
+|
+| The mixin can be applied to a wrapper containing an img and a p or a
+| wrapper containing other elements with class media__img and media__body
+|
+| VARIABLES
+| $reverse: Indicates that the image should be floated to the right (bool)
+| $spacing: The horizontal spacing between elements (px/em)
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| HEADINGS
+| Style any number of headings in one go.
+|
+| VARIABLES
+| $from: The first of headings to style, eg 1 = <h1>
+| $to : The last of headings to style, eg 6 = <h6>
+|
+| EXAMPLE
+| .body {
+|   @include headings (1, 4) {
+|     color: #f00;
+|   }
+| }
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| BUTTONS
+| Style a link as a button
+|
+| VARIABLES
+| $radius: The border radius of the button
+| $bgcolor: The background color of the button
+| @size: The size of the button
+| $hover: The color of the button when the user hovers it, it is active or in focus
+|
+| EXAMPLE
+| @include button(); // A standard button without background color
+| @include button( 6px, xl, #f00, #0f0 ); // An extra large button with 6px border radius,
+| // red background color and green background color on hover.
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| GO LINKS
+| Style a link without underline and with a double right bracket at the end.
+| Use with caution, underlining links is an important standard on the web.
+|
+| VARIABLES
+| $direction: fwd/back indicates the direction of the movement
+| $color: The color of the link
+| $hover: Set to none if you don't want the link to be underlined on hover
+| $float-right: Set to true if the link should align right
+|
+| EXAMPLE
+| @include go-link(); // Black link with underline on hover
+| @include go-link( #f00, none ); // Red link without underline on hover
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| ALERT BOX
+| Style an alert box.
+|
+| VARIABLES
+| $bg-color:
+| $color:
+| $border-radius:
+| $padding:
+| $font-size:
+| $border-width:
+| $border-style:
+| $border-color:
+|
+| EXAMPLE
+| @include alert(); // Red box with black text
+| @include go-link( #0f0, #000, 50% ); // Rounded box with green bg and black text
+|
+| Original code from Foundation by Zurb
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| ABSOLUTE CENTER
+| Position an element at absolut center, horizontally and vertically
+|
+| VARIABLES
+| $width: width in px or em
+| $height: height in px or em
+|
+| EXAMPLE
+| @include absolute-center(200px, 200px);
+|
+|------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------
+| VARIABLES
+|------------------------------------------------------------------------*/
+/* COLORS */
+/* $color-darkblue: #183845;
+$color-greyblue: #25576B;
+$color-blue: #317792;
+$color-grey: #7B7B7B;
+$color-lightgrey: #949494; */
+/* BREAKPOINTS */
+/*-------------------------------------------------------------------------
+| CSS
+|------------------------------------------------------------------------*/
+/*------------------------------------*\
+    _BASE.SCSS
+\*------------------------------------*/
+/**
+ * IMPORTS
+ */
+/**
+ * BASE STYLES
+ */
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: #6c0aab;
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
+body.login {
+  background-color: #6c0aab;
+  color: #ddd0f9;
+}
+
+img {
+  max-width: 100%;
+}
+
+header, section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.dashboard {
+  *zoom: 1;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dashboard:before, .dashboard:after {
+  content: " ";
+  display: table;
+}
+.dashboard:after {
+  clear: both;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR INPUT ELEMENTS
+|------------------------------------------------------------------------*/
+input {
+  font-size: 1em;
+  padding: 1.4em 1em;
+  outline: none;
+  border: 0;
+  border-radius: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR LINKS
+|------------------------------------------------------------------------*/
+a {
+  color: #fff;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+a:hover {
+  background-color: #520583;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR SECTIONS
+|------------------------------------------------------------------------*/
+section {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR LISTS
+|------------------------------------------------------------------------*/
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR HEADINGS
+|------------------------------------------------------------------------*/
+h1 {
+  text-align: center;
+}
+
+h3 {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 0.9em;
+  border-top: 1px solid #8a2ac7;
+  font-style: italic;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR HEADERS
+|------------------------------------------------------------------------*/
+header {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  background-color: #520583;
+}
+header a {
+  text-decoration: none;
+}
+header a:last-of-type {
+  float: right;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR LOGIN FORM
+|------------------------------------------------------------------------*/
+.login-form {
+  margin-top: 1em;
+}
+.login-form > h1 {
+  margin: 0;
+  font-size: 4em;
+  text-align: center;
+}
+.login-form input {
+  width: 100%;
+  margin-top: .7em;
+  border-radius: 0;
+}
+.login-form input[type=submit] {
+  background-color: #ffd100;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR TRANSPARENT INPUT ELEMENTS
+| Used for user input in most screens within the app
+|------------------------------------------------------------------------*/
+.transparent-input {
+  position: relative;
+  display: inline-block;
+}
+.transparent-input label {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  left: 0;
+  font-size: 1em;
+  color: #9443c7;
+  z-index: -1;
+}
+.transparent-input input {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  font-size: 3em;
+  padding: 0;
+  text-align: center;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR LIST OF CHOICES
+|------------------------------------------------------------------------*/
+.choices li {
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 1.5em;
+}
+.choices li:nth-of-type(n+2) {
+  border-top: 1px solid #9443c7;
+}
+.choices li a {
+  text-decoration: none;
+}
+.choices li h2 {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.choices li button {
+  background: none;
+  border: none;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  padding: 0;
+  margin-top: -10px;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR THE ADD DRILL PAGE
+|------------------------------------------------------------------------*/
+.add-set .transparent-input {
+  float: left;
+  width: 50%;
+}
+.add-set input[type=submit] {
+  margin: 1em 0;
+  width: 100%;
+  background-color: #ffd100;
+}
+.add-set input[type=submit]:hover, .add-set input[type=submit]:focus {
+  background-color: #c4a000;
+}
+.add-set input[type=submit].sending {
+  background-color: #ccc;
+}
+.add-set input[type=submit].success {
+  background-color: #a5ef00;
+}
+
+/*# sourceMappingURL=style.css.map */

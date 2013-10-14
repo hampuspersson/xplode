@@ -1,4 +1,5 @@
 /*global xplodeApp */
+/* jshint camelcase: false */
 
 xplodeApp.controller('DashboardController', function( $scope, $api, $store ) {
 
@@ -8,6 +9,10 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store ) {
 	 */
 	function init() {
 
+		$store.remove('user');
+		$store.remove('program');
+
+		/* Get the logged in user from Laravel */
 		$api.getLoggedInUser().then(function(result) {
 
 			$scope.currentUserId = result;
@@ -16,16 +21,20 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store ) {
 				result.max = jQuery.parseJSON(result.max);
 				result.firstName = result.name.substring(0,result.name.indexOf(" "));
 				$store.set('user', result);
+
+				$scope.programs = $api.getUserPrograms($scope.currentUserId).then(function(result) {
+					var user = $store.get('user');
+					user.programs = result.programs;
+					$store.set('user', user);
+					return result.programs;
+				});
+
 				return result;
 			});
 
-			$scope.programs = $api.getUserPrograms($scope.currentUserId).then(function(result) {
-				return result.programs;
-			});
-
-			$scope.drills = $api.getAllDrills().then(function(result) {
+			/*$scope.drills = $api.getAllDrills().then(function(result) {
 				return result;
-			});
+			});*/
 		});
 	}
 
@@ -45,6 +54,14 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 	 */
 	function init() {
 
+		if( $routeParams.day ) {
+			$scope.day = $routeParams.day;
+			$store.set('day', $routeParams.day);
+		} else {
+			// If a specific day is not asked for we can not continue.
+		}
+
+
 		if( $store.get('user') ) {
 			$scope.user = $store.get('user');
 		} else {
@@ -58,14 +75,15 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 			});
 		}
 
-		$scope.program = $api.getProgram($routeParams.programId).then(function(result) {
-			$store.set('program', result);
-			return result;
-		});
-
-		$scope.programDrills = $api.getDrillsInProgram($routeParams.programId).then(function(result) {
-			return result;
-		});
+		if( $store.get('program') ) {
+			$scope.program = $store.get('program');
+		} else {
+			$scope.program = $api.getProgram($routeParams.programId).then(function(result) {
+				result.days = JSON.parse(result.days);
+				$store.set('program', result);
+				return result;
+			});
+		}
 	}
 
 	init();
@@ -75,6 +93,8 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 |------------------------------------------------------------------------*/
 
 });
+
+// xplodeApp.controller('Day')
 
 xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $store, $utilities ) {
 
@@ -86,6 +106,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 		// Fallback if user isn't stored
 		$scope.user = $store.get('user');
 		$scope.program = $store.get('program');
+		$scope.day = $store.get('day');
 
 		$scope.drillReps = 10;
 		$scope.drillWeight = 80;
@@ -95,7 +116,17 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			return result;
 		});
 
-		$scope.reps = $api.getResults($scope.drillId).then(function(result) {
+		$scope.reps = $api.getResults($scope.drillId, $scope.user.id).then(function(result) {
+			for(var i=0; i<result.length; i++) {
+				var month = 0 === result[i].created_at.substring(5,6) ?
+									result[i].created_at.substring(6,7) :
+									result[i].created_at.substring(5,7);
+				var day = 0 === result[i].created_at.substring(8,9) ?
+									result[i].created_at.substring(9,10) :
+									result[i].created_at.substring(8,10);
+				var time = result[i].created_at.substring(11,16);
+				result[i].displayDate = day + "/" + month + " " + time;
+			}
 			return result;
 		});
 
@@ -109,13 +140,9 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 
 	$scope.addSet = function() {
 
-		$scope.reps.$$v.unshift({
-			'created_at': $utilities.getTime(),
-			'user_id': $scope.user.id,
-			'drill_id': $scope.drillId,
-			'reps': $scope.drillReps,
-			'weight': $scope.drillWeight
-		});
+		var btn = document.getElementById('submit-result');
+		btn.classList.add('sending');
+		btn.value = "Jobbar...";
 
 		$api.addResult({
 			'user_id': $scope.user.id,
@@ -125,7 +152,24 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			'weight': $scope.drillWeight
 		})
 		.then(function(result) {
+			btn.classList.remove('sending');
+			btn.classList.add('success');
+			btn.value = "Grymt jobbat!";
+			setTimeout(function() {
+				btn.classList.remove('success');
+				btn.value = "Registrera";
+				btn.blur();
+			}, 2000);
 			// REMOVE THE ENTRY IF THE SERVER THROWS AN ERROR
+		});
+
+		$scope.reps.$$v.unshift({
+			'created_at': $utilities.getTime(),
+			'user_id': $scope.user.id,
+			'drill_id': $scope.drillId,
+			'reps': $scope.drillReps,
+			'weight': $scope.drillWeight,
+			'displayDate': 'idag'
 		});
 	};
 });

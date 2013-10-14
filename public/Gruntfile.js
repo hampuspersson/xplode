@@ -67,6 +67,7 @@ module.exports = function(grunt) {
 				files: {
 					'assets/javascripts/main.min.js': [
 						'assets/javascripts/source/main.js',
+						'assets/javascripts/source/app/directives.js',
 						'assets/javascripts/source/app/factories.js',
 						'assets/javascripts/source/app/controllers.js'
 					]
@@ -79,7 +80,17 @@ module.exports = function(grunt) {
 				},
 				files: {
 					'build/assets/javascripts/main.min.js': [
-						'assets/javascripts/source/main.js'
+						'assets/javascripts/source/main.js',
+						'assets/javascripts/source/app/directives.js',
+						'assets/javascripts/source/app/factories.js',
+						'assets/javascripts/source/app/controllers.js'
+					],
+					'build/assets/javascripts/vendors.min.js': [
+						'assets/components/angular-resource/angular-resource.min.js',
+						'assets/components/angular-route/angular-route.min.js',
+						'assets/components/angular-cookies/angular-cookies.min.js',
+						'assets/components/Angular-localStorage/src/localStorage.js',
+						/*'assets/components/fastclick/lib/fastclick.min.js'*/
 					]
 				}
 			}
@@ -104,12 +115,12 @@ module.exports = function(grunt) {
 		'ftp-deploy': {
 			dist: {
 				auth: {
-					host: '',
+					host: 'ftp.hampuspersson.se',
 					port: 21,
 					authKey: 'key1' // key1 is set in .ftppass
 				},
 				src: 'build/',
-				dest: '',
+				dest: 'xplode/public',
 			}
 		},
 
@@ -119,7 +130,7 @@ module.exports = function(grunt) {
 				files: [
 					{expand: true, src: [
 								'**/*', // All files and folder
-								'!build', '!assets/**/*', '!node_modules', '!node_modules/**/*', //except these dirs
+								'!build', '!build/**/*', '!assets/**/*', '!node_modules', '!node_modules/**/*', //except these dirs
 								'!Gruntfile.js', '!package.json' ], // and these files
 								dest: 'build/'},
 					{expand: true, src: [ 'assets/fonts/*' ], dest: 'build/'},

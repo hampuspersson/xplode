@@ -1,0 +1,320 @@
+/*-------------------------------------------------------------------------
+| Handy mixins for SASS
+|
+| @author: Hampus Persson
+|
+| Credit to HTML5 Boilerplate, Foundation by Zurb & Inuit.css
+|------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------
+| HIDDEN
+| Hides an element from both display and screenreaders.
+| h5bp.com/u
+|------------------------------------------------------------------------*/
+@mixin hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*-------------------------------------------------------------------------
+| VISUALLY HIDDEN
+| Hides an element from display but leaves it visible for screenreaders.
+| h5bp.com/v
+|------------------------------------------------------------------------*/
+@mixin visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*-------------------------------------------------------------------------
+| BLOCK GRID
+| Generates a block-grid of li-elements.
+| VARIABLES:
+| $per-row: How many items should sit in each row. (int)
+| $spacing: The spacing between li-blocks (px/em)
+| $base-style: Should the mixin apply base styling to the blocks? (bool)
+| $default-float: Float direction of the block items. (right/left)
+|
+| Original version from Foundation by ZURB.
+|------------------------------------------------------------------------*/
+@mixin block-grid($per-row:false, $spacing:1em, $base-style:true, $default-float:left) {
+
+  @if $base-style {
+    display: block;
+    padding: 0;
+    margin: 0 (-$spacing/2);
+    @include clearfix;
+
+    &>li {
+      display: inline;
+      height: auto;
+      float: $default-float;
+      padding: 0 ($spacing/2) $spacing;
+    }
+  }
+
+  @if $per-row {
+    &>li {
+      width: 100%/$per-row;
+      padding: 0 ($spacing/2) $spacing;
+
+      &:nth-of-type(n) { clear: none; }
+      &:nth-of-type(#{$per-row}n+1) { clear: both; }
+      &:nth-last-of-type(-n+#{$per-row}) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+}
+
+/*-------------------------------------------------------------------------
+| MEDIA OBJECT
+| Mixin to create an instance of Nicole Sullivans media object.
+|
+| The mixin can be applied to a wrapper containing an img and a p or a
+| wrapper containing other elements with class media__img and media__body
+|
+| VARIABLES
+| $reverse: Indicates that the image should be floated to the right (bool)
+| $spacing: The horizontal spacing between elements (px/em)
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+@mixin media-object( $reverse: false, $spacing: 1em ) {
+  display:block;
+  @include clearfix;
+
+  @if $reverse {
+    &>img, .media-object__img {
+      float:right;
+      margin-left:1em;
+    }
+  } @else {
+    &>img, .media-object__img {
+      float:left;
+      margin-right:$spacing;
+      display:block;
+    }
+  }
+
+  &>p, .media-object__body {
+    overflow:hidden;
+    margin-bottom:0;
+  }
+}
+
+/*-------------------------------------------------------------------------
+| HEADINGS
+| Style any number of headings in one go.
+|
+| VARIABLES
+| $from: The first of headings to style, eg 1 = <h1>
+| $to : The last of headings to style, eg 6 = <h6>
+|
+| EXAMPLE
+| .body {
+|   @include headings (1, 4) {
+|     color: #f00;
+|   }
+| }
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+@mixin headings($from: 1, $to: 6){
+    %base-heading {
+        @content
+    }
+
+    @if $from >= 1 and $to <= 6{
+        @for $i from $from through $to{
+            h#{$i}{
+                @extend %base-heading;
+            }
+        }
+    }
+}
+
+/*-------------------------------------------------------------------------
+| BUTTONS
+| Style a link as a button
+|
+| VARIABLES
+| $radius: The border radius of the button
+| $bgcolor: The background color of the button
+| @size: The size of the button
+| $hover: The color of the button when the user hovers it, it is active or in focus
+|
+| EXAMPLE
+| @include button(); // A standard button without background color
+| @include button( 6px, xl, #f00, #0f0 ); // An extra large button with 6px border radius,
+| // red background color and green background color on hover.
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+@mixin button ($radius: 4px, $size: m, $bgcolor: transparent, $hover: $bgcolor ) {
+  display:inline-block;
+  vertical-align:middle;
+  white-space:nowrap;
+  font-family:inherit;
+  font-size:100%;
+  cursor:pointer;
+  border:none;
+  margin:0;
+  padding-top: 0;
+  padding-bottom:0;
+  border-radius: $radius;
+  background-color: $bgcolor;
+  text-decoration:none;
+
+  @if $size == s {
+    padding-right:0.5em;
+    padding-left: 0.5em;
+    line-height:2;
+  }
+
+  @if $size == m {
+    padding-right:1em;
+    padding-left: 1em;
+    line-height:3;
+  }
+
+  @if $size == l {
+    padding-right:1.5em;
+    padding-left: 1.5em;
+    line-height:4;
+  }
+
+  @if $size == xl {
+    padding-right:2em;
+    padding-left: 2em;
+    line-height:5;
+  }
+
+  &:hover{
+      background-color: $hover;
+  }
+
+  &:active,
+  &:focus{
+      outline:none;
+      background-color: $hover;
+  }
+}
+
+/*-------------------------------------------------------------------------
+| GO LINKS
+| Style a link without underline and with a double right bracket at the end.
+| Use with caution, underlining links is an important standard on the web.
+|
+| VARIABLES
+| $direction: fwd/back indicates the direction of the movement
+| $color: The color of the link
+| $hover: Set to none if you don't want the link to be underlined on hover
+| $float-right: Set to true if the link should align right
+|
+| EXAMPLE
+| @include go-link(); // Black link with underline on hover
+| @include go-link( #f00, none ); // Red link without underline on hover
+|
+| Original code from inuit.css
+|------------------------------------------------------------------------*/
+@mixin go-link ( $direction, $color: #000, $hover: underline, $float-right: false ) {
+  text-decoration: none;
+  color: $color;
+  @if $float-right {
+    float: right;
+  }
+
+  @if $direction == back {
+    &:before {
+      content:"\00AB" "\00A0"!important; // \00AB = left angled quotation mark, \00A0 = no-break space
+    }
+  } @else {
+    &:after {
+      content:"\00A0" "\00BB"!important; // \00A0 = no-break space, \00BB = right angled quotation mark
+    }
+  }
+
+  &:hover {
+    text-decoration: $hover;
+  }
+}
+
+/*-------------------------------------------------------------------------
+| ALERT BOX
+| Style an alert box.
+|
+| VARIABLES
+| $bg-color:
+| $color:
+| $border-radius:
+| $padding:
+| $font-size:
+| $border-width:
+| $border-style:
+| $border-color:
+|
+| EXAMPLE
+| @include alert(); // Red box with black text
+| @include go-link( #0f0, #000, 50% ); // Rounded box with green bg and black text
+|
+| Original code from Foundation by Zurb
+|------------------------------------------------------------------------*/
+@mixin alert( $bg-color: #f00, $color: #000, $border-radius: 4px, $padding: 1em, $font-size: 1em, $border-width: 1px, $border-style: solid, $border-color: darken($bg-color, 20%) ) {
+
+  position: relative;
+  display: block;
+  padding: $padding $padding*3 $padding $padding;
+  background-color: $bg-color;
+  color: $color;
+  border-width: $border-width;
+  border-style: $border-style;
+  border-color: $border-color;
+  border-radius: $border-radius;
+  font-size: $font-size;
+
+  &:after {
+    content: "\00d7";
+    font-size: 1em;
+    position: absolute;
+    right: $padding;
+    top: $padding;
+    width: 1.3em;
+    height: 1.3em;
+    cursor: pointer;
+    background-color: darken($bg-color, 10%);
+    border-radius: 50%;
+    text-align: center
+  }
+}
+
+/*-------------------------------------------------------------------------
+| ABSOLUTE CENTER
+| Position an element at absolut center, horizontally and vertically
+|
+| VARIABLES
+| $width: width in px or em
+| $height: height in px or em
+|
+| EXAMPLE
+| @include absolute-center(200px, 200px);
+|
+|------------------------------------------------------------------------*/
+@mixin absolute-center($width:200px, $height:200px) {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: hidden;
+  max-width: $width;
+  max-height: $height;
+}

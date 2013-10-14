@@ -1,0 +1,20 @@
+/*-------------------------------------------------------------------------
+| STYLING FOR HEADERS
+|------------------------------------------------------------------------*/
+
+header {
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	background-color: $color-primary-3;
+
+	a {
+		text-decoration: none;
+		&:first-of-type {
+			//float: left;
+		}
+
+		&:last-of-type {
+			float: right;
+		}
+	}
+}

@@ -76,8 +76,8 @@ xplodeApp.factory( '$api', function( $http, $store ) {
 /*-------------------------------------------------------------------------
 | Methods relating to results
 |------------------------------------------------------------------------*/
-		getResults: function(drillId) {
-			return $http.get( apiPrefix('results', '?drill='+drillId) ).then(function(result) {
+		getResults: function(drillId, userId) {
+			return $http.get( apiPrefix('results', '?drill='+drillId+'&user='+userId) ).then(function(result) {
 				return result.data;
 			});
 		},
@@ -88,6 +88,12 @@ xplodeApp.factory( '$api', function( $http, $store ) {
 			});
 		},
 
+	};
+});
+
+xplodeApp.factory('$program', function() {
+	return {
+		current: {},
 	};
 });
 

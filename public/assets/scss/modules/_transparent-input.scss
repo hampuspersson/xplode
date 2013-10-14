@@ -1,0 +1,30 @@
+/*-------------------------------------------------------------------------
+| STYLING FOR TRANSPARENT INPUT ELEMENTS
+| Used for user input in most screens within the app
+|------------------------------------------------------------------------*/
+
+.transparent-input {
+	position: relative;
+	display: inline-block;
+
+	label {
+		display: block;
+		position: absolute;
+		top: 50%;
+		margin-top: -0.5em;
+		left: 0;
+		font-size: 1em;
+		color: $color-primary-5;
+		z-index: -1;
+	}
+
+	input {
+		display: block;
+		width: 100%;
+		background: transparent;
+		color: #fff;
+		font-size: 3em;
+		padding: 0;
+		text-align: center;
+	}
+}

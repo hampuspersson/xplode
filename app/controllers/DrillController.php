@@ -10,24 +10,26 @@ class DrillController extends \BaseController {
 	public function index()
 	{
 		/* To be able to process the drills array in angular the index needs to be set to the id of the drill */
-		$drills = [];
-
-
+		$days = array();
+		$drills = array();
 
 		if( isset($_GET['program'] )) {
-			$drills_in_program = Program::find($_GET['program']);
+			$days_in_program = Program::find($_GET['program'])->toArray();
+			$days = json_decode($days_in_program['days']);
 
-			// return $drills_in_program;
-
-			foreach( json_decode($drills_in_program['drills']) as $key => $val ) {
-				// return $val->drill;
-				$drills[$val->drill] = Drill::find($val->drill)->toArray();
-				$drills[$val->drill]['sets'] = $val->sets;
-				$drills[$val->drill]['reps'] = $val->reps;
-
+			foreach( $days as $day ) {
+				foreach( $day->drills as $drill ) {
+					$temp = Drill::find($drill->drill);
+					$drill->id = $temp->id;
+					$drill->title = $temp->title;
+					$drill->desc = $temp->desc;
+					$drill->video = $temp->video;
+				}
 			}
 
-			$result = json_encode($drills);
+			$days_in_program['days'] = json_encode($days);
+
+			$result = $days_in_program;
 		} else {
 			foreach( Drill::all()->toArray() as $key=>$val) {
 				$drills[$val['id']] = $val;

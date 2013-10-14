@@ -16,7 +16,8 @@ html {
 }
 
 body {
-	background-color: #fff;
+	background-color: $color-primary;
+	color: #fff;
 	font-size: #{$base-font-size}px;
 	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
 
@@ -28,6 +29,11 @@ body {
 
 img {
 	max-width: 100%;
+}
+
+header, section {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .dashboard {

@@ -4,17 +4,19 @@
  * @hampusp
  */
 
+ /* jshint camelcase: false */
  /*global angular*/
+ /*global FastClick*/
 
 "use strict";
 
-(function( $ ) {
+var xplodeApp = angular.module('xplodeApp', [ 'ngRoute', 'localStorage' ])
+	.run(function( $rootScope) {
+		$rootScope.ROUTES = "";
+		$rootScope.ROUTES = "/xplode/public";
+	});
 
-}(jQuery));
-
-var xplodeApp = angular.module('xplodeApp', [ 'localStorage' ]);
-
-xplodeApp.config(function( $routeProvider ) {
+xplodeApp.config(function( $routeProvider, $rootScope ) {
 	$routeProvider
 		.when('/', {
 			controller: 'DashboardController',
@@ -23,6 +25,10 @@ xplodeApp.config(function( $routeProvider ) {
 		.when('/program/:programId', {
 			controller: 'ProgramController',
 			templateUrl: 'partials/program.html'
+		})
+		.when('/program/:programId/day/:day', {
+			controller: 'ProgramController',
+			templateUrl: 'partials/day.html'
 		})
 		.when('/drill/:drillId', {
 			controller: 'DrillController',
