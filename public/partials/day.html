@@ -6,7 +6,7 @@
 	<h1>{{program.title}}{{" dag " + day}}</h1>
 	<h3>Välj övning</h3>
 	<ul class="choices">
-		<li data-ng-repeat="drill in program.days[day-1].drills">
+		<li data-ng-repeat="drill in program.days[day-1].drills | orderBy: ['prio', 'title']">
 			<a href="{{ROUTES}}/#/drill/{{drill.drill}}/add">
 				<h2>{{drill.title}}</h2>
 				<time>[{{drill.prio}}] - {{drill.sets}}x{{drill.reps}}</time>
