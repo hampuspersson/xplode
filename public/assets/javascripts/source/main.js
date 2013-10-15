@@ -13,7 +13,7 @@
 var xplodeApp = angular.module('xplodeApp', [ 'ngRoute', 'localStorage' ])
 	.run(function( $rootScope) {
 		$rootScope.ROUTES = "";
-		$rootScope.ROUTES = "/xplode/public";
+		// $rootScope.ROUTES = "/xplode/public";
 	});
 
 xplodeApp.config(function( $routeProvider, $rootScope ) {
