@@ -1,3 +1,6 @@
 vendor/
 public/node_modules/
 public/.sass-cache/
+public/assets/javascripts/main.min.js
+public/assets/javascripts/map/
+public/assets/javascripts/vendors.min.js
