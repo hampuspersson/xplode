@@ -9,7 +9,7 @@
 		<li data-ng-repeat="drill in program.days[day-1].drills">
 			<a href="{{ROUTES}}/#/drill/{{drill.drill}}/add">
 				<h2>{{drill.title}}</h2>
-				<time>{{drill.sets}}x{{drill.reps}}</time>
+				<time>[{{drill.prio}}] - {{drill.sets}}x{{drill.reps}}</time>
 				<button>></button>
 			</a>
 		</li>
