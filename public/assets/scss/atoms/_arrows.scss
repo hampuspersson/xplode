@@ -1,0 +1,16 @@
+/*-------------------------------------------------------------------------
+| STYLING FOR ARROWS
+|------------------------------------------------------------------------*/
+
+.arrow {
+	position: relative;
+	padding-left: 15px;
+
+	&:before, &:after {
+		content:'';
+		position: absolute;
+		border: solid transparent;
+		height: 0;
+		width: 0;
+	}
+}
