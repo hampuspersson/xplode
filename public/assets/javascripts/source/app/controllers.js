@@ -108,8 +108,8 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 		$scope.program = $store.get('program');
 		$scope.day = $store.get('day');
 
-		$scope.drillReps = 10;
-		$scope.drillWeight = 80;
+		$scope.drillReps = 0;
+		$scope.drillWeight = 0;
 		$scope.drillId = $routeParams.drillId;
 
 		$scope.drill = $api.getDrill($routeParams.drillId).then(function(result) {
@@ -127,6 +127,15 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 				var time = result[i].created_at.substring(11,16);
 				result[i].displayDate = day + "/" + month + " " + time;
 			}
+
+			if( typeof result[0] === 'undefined' ) {
+				$scope.drillWeight = 0;
+				$scope.drillReps = 0;
+			} else {
+				$scope.drillWeight = result[0].weight || 0;
+				$scope.drillReps = result[0].reps || 0;
+			}
+
 			return result;
 		});
 
