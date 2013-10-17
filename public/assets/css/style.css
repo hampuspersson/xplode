@@ -641,6 +641,21 @@ h3 {
 }
 
 /*-------------------------------------------------------------------------
+| STYLING FOR ARROWS
+|------------------------------------------------------------------------*/
+.arrow {
+  position: relative;
+  padding-left: 15px;
+}
+.arrow:before, .arrow:after {
+  content: '';
+  position: absolute;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+}
+
+/*-------------------------------------------------------------------------
 | STYLING FOR HEADERS
 |------------------------------------------------------------------------*/
 header {
@@ -653,6 +668,17 @@ header a {
 }
 header a:last-of-type {
   float: right;
+}
+header .arrow-back:after {
+  left: -10px;
+  border-width: 10px;
+  border-right-color: #520583;
+}
+header .arrow-back:before {
+  left: -14px;
+  top: -2px;
+  border-width: 12px;
+  border-right-color: #ffd100;
 }
 
 /*-------------------------------------------------------------------------
@@ -724,7 +750,7 @@ header a:last-of-type {
 .choices li button {
   background: none;
   border: none;
-  color: #fff;
+  color: #ffd100;
   position: absolute;
   right: 0;
   top: 50%;
