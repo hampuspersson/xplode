@@ -2,7 +2,7 @@
 
 class Drill extends Eloquent {
 
-	protected $table = 'drills';
+	protected $table = 'xplode_drills';
 
 	protected $fillable = array('title', 'description', 'video');
 }

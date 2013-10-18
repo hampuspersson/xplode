@@ -2,7 +2,7 @@
 
 class Group extends Eloquent {
 
-	protected $table = 'groups';
+	protected $table = 'xplode_groups';
 
 	protected $fillable = array('name');
 }

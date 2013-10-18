@@ -170,6 +170,16 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 		btn.classList.add('sending');
 		btn.value = "Jobbar...";
 
+		$scope.reps.unshift({
+			'created_at': $utilities.getTime(),
+			'user_id': $scope.user.id,
+			'drill_id': $scope.drillId,
+			'program_id': $scope.program.id,
+			'reps': $scope.drillReps,
+			'weight': $scope.drillWeight,
+			'displayDate': 'idag'
+		});
+
 		$api.results.add({
 			'user_id': $scope.user.id,
 			'drill_id': $scope.drillId,
@@ -178,6 +188,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			'weight': $scope.drillWeight
 		})
 		.then(function(result) {
+			$scope.reps[0].id = result;
 			btn.classList.remove('sending');
 			btn.classList.add('success');
 			btn.value = "Grymt jobbat!";
@@ -189,14 +200,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			// REMOVE THE ENTRY IF THE SERVER THROWS AN ERROR
 		});
 
-		$scope.reps.unshift({
-			'created_at': $utilities.getTime(),
-			'user_id': $scope.user.id,
-			'drill_id': $scope.drillId,
-			'reps': $scope.drillReps,
-			'weight': $scope.drillWeight,
-			'displayDate': 'idag'
-		});
+
 	};
 
 	$scope.removeSet = function(obj) {

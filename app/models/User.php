@@ -10,7 +10,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'users';
+	protected $table = 'xplode_users';
 
 	protected $fillable = array('name', 'email', 'password', 'group_id', 'max');
 

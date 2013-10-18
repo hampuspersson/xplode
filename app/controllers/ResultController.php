@@ -42,9 +42,9 @@ class ResultController extends \BaseController {
 			'reps' => $input['reps']
 		));
 
-		$input['date'] = $input['date'] = date('Y-m-d H:i:s');
+		// $input['date'] = $input['date'] = date('Y-m-d H:i:s');
 
-		return json_encode($input);
+		return json_encode($result->id);
 	}
 
 	/**
