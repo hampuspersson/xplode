@@ -834,5 +834,9 @@ header .arrow-back:before {
 .add-set input[type=submit].success {
   background-color: #a5ef00;
 }
+.add-set .change-value {
+  width: auto;
+  margin: 0 auto;
+}
 
 /*# sourceMappingURL=style.css.map */
