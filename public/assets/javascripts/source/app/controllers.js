@@ -15,19 +15,16 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store ) {
 
 
 		/* Get the logged in user from Laravel */
-		$api.getLoggedInUser().then(function(result) {
+		$api.users.getLoggedIn().then(function(result) {
 
 			$scope.currentUserId = result;
 
-			$api.getCurrentUser($scope.currentUserId).then(function(result) {
-				// result.max = jQuery.parseJSON(result.max);
-				// result.firstName = result.name.substring(0,result.name.indexOf(" "));
+			$api.users.getCurrent($scope.currentUserId).then(function(result) {
 				$store.set('user', result);
 
-				$api.getUserPrograms($scope.currentUserId).then(function(result) {
+				$api.programs.getUser($scope.currentUserId).then(function(result) {
 					var user = $store.get('user');
 					user.programs = result.programs;
-					// $store.set('program', result.programs);
 
 					$scope.programs = result.programs;
 				});
@@ -66,12 +63,12 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 		if( $store.get('user') ) {
 			$scope.user = $store.get('user');
 		} else {
-			$api.getLoggedInUser().then(function(result) {
-				$scope.user = $api.getCurrentUser($scope.currentUserId).then(function(result) {
+			$api.users.getLoggedIn().then(function(result) {
+				$api.users.getCurrent($scope.currentUserId).then(function(result) {
 					result.max = jQuery.parseJSON(result.max);
 					result.firstName = result.name.substring(0,result.name.indexOf(" "));
 					$store.set('user', result);
-					$scope.currentUserId =  result;
+					$scope.user = result;
 				});
 			});
 		}
@@ -79,7 +76,7 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 		if( $store.get('program') ) {
 			$scope.program = $store.get('program');
 		} else {
-			$api.getProgram($routeParams.programId).then(function(result) {
+			$api.programs.get($routeParams.programId).then(function(result) {
 				result.days = JSON.parse(result.days);
 				$store.set('program', result);
 				$scope.program =  result;
@@ -113,11 +110,11 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 		$scope.drillWeight = 0;
 		$scope.drillId = $routeParams.drillId;
 
-		$scope.drill = $api.getDrill($routeParams.drillId).then(function(result) {
-			return result;
+		$api.drills.get($routeParams.drillId).then(function(result) {
+			$scope.drill =  result;
 		});
 
-		$api.getResults($scope.drillId, $scope.user.id).then(function(result) {
+		$api.results.getUsers($scope.drillId, $scope.user.id).then(function(result) {
 			for(var i=0; i<result.length; i++) {
 				var month = 0 === result[i].created_at.substring(5,6) ?
 									result[i].created_at.substring(6,7) :
@@ -138,6 +135,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			}
 
 			$scope.reps =  result;
+			console.log($scope.reps);
 		});
 
 	}
@@ -154,7 +152,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 		btn.classList.add('sending');
 		btn.value = "Jobbar...";
 
-		$api.addResult({
+		$api.results.addSet({
 			'user_id': $scope.user.id,
 			'drill_id': $scope.drillId,
 			'program_id': $scope.program.id,
@@ -173,7 +171,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			// REMOVE THE ENTRY IF THE SERVER THROWS AN ERROR
 		});
 
-		$scope.reps.$$v.unshift({
+		$scope.reps.unshift({
 			'created_at': $utilities.getTime(),
 			'user_id': $scope.user.id,
 			'drill_id': $scope.drillId,

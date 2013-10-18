@@ -16,6 +16,75 @@ xplodeApp.factory( '$api', function( $http, $store ) {
 
 	return {
 
+		users: {
+			getAll: function() {
+				return $http.get( apiPrefix('users') ).then(function(result) {
+					return result.data;
+				});
+			},
+			getCurrent: function(id) {
+				return $http.get( apiPrefix('users', id) ).then(function(result) {
+					return result.data;
+				});
+			},
+			getLoggedIn: function(id) {
+				return $http.get( apiPrefix('users', '?getLoggedInUser') ).then(function(result) {
+					return result.data;
+				});
+			},
+		},
+
+		programs: {
+			getAll: function() {
+				return $http.get( apiPrefix('programs') ).then(function(result) {
+					return result.data;
+				});
+			},
+			get: function(programId) {
+				return $http.get( apiPrefix('programs', programId) ).then(function(result) {
+					return result.data;
+				});
+			},
+			getUser: function(userId) {
+				return $http.get( apiPrefix('programs', '?user='+userId) ).then(function(result) {
+					return result.data;
+				});
+			},
+		},
+
+		drills: {
+			getAll: function() {
+				return $http.get( apiPrefix('drills') ).then(function(result) {
+					return result.data;
+				});
+			},
+
+			get: function(drillId) {
+				return $http.get( apiPrefix('drills', drillId) ).then(function(result) {
+					return result.data;
+				});
+			},
+
+			getInProgram: function(programId) {
+				return $http.get( apiPrefix('drills', '?program='+programId) ).then(function(result) {
+					return result.data;
+				});
+			},
+		},
+
+		results: {
+			getUsers: function(drillId, userId) {
+				return $http.get( apiPrefix('results', '?drill='+drillId+'&user='+userId) ).then(function(result) {
+					return result.data;
+				});
+			},
+
+			addSet: function(data) {
+				return $http.post( apiPrefix('results'), data ).then(function(result) {
+					return result.data;
+				});
+			},
+		},
 /*-------------------------------------------------------------------------
 | Methods relating to the user
 |------------------------------------------------------------------------*/
