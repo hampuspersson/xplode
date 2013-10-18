@@ -12,29 +12,30 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store ) {
 		$store.remove('user');
 		$store.remove('program');
 
+
+
 		/* Get the logged in user from Laravel */
 		$api.getLoggedInUser().then(function(result) {
 
 			$scope.currentUserId = result;
 
-			$scope.user = $api.getCurrentUser($scope.currentUserId).then(function(result) {
-				result.max = jQuery.parseJSON(result.max);
-				result.firstName = result.name.substring(0,result.name.indexOf(" "));
+			$api.getCurrentUser($scope.currentUserId).then(function(result) {
+				// result.max = jQuery.parseJSON(result.max);
+				// result.firstName = result.name.substring(0,result.name.indexOf(" "));
 				$store.set('user', result);
 
-				$scope.programs = $api.getUserPrograms($scope.currentUserId).then(function(result) {
+				$api.getUserPrograms($scope.currentUserId).then(function(result) {
 					var user = $store.get('user');
 					user.programs = result.programs;
-					$store.set('user', user);
-					return result.programs;
+					// $store.set('program', result.programs);
+
+					$scope.programs = result.programs;
 				});
 
-				return result;
+				$scope.user = result;
 			});
 
-			/*$scope.drills = $api.getAllDrills().then(function(result) {
-				return result;
-			});*/
+
 		});
 	}
 
@@ -65,12 +66,12 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 		if( $store.get('user') ) {
 			$scope.user = $store.get('user');
 		} else {
-			$scope.currentUserId = $api.getLoggedInUser().then(function(result) {
+			$api.getLoggedInUser().then(function(result) {
 				$scope.user = $api.getCurrentUser($scope.currentUserId).then(function(result) {
 					result.max = jQuery.parseJSON(result.max);
 					result.firstName = result.name.substring(0,result.name.indexOf(" "));
 					$store.set('user', result);
-					return result;
+					$scope.currentUserId =  result;
 				});
 			});
 		}
@@ -78,10 +79,10 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 		if( $store.get('program') ) {
 			$scope.program = $store.get('program');
 		} else {
-			$scope.program = $api.getProgram($routeParams.programId).then(function(result) {
+			$api.getProgram($routeParams.programId).then(function(result) {
 				result.days = JSON.parse(result.days);
 				$store.set('program', result);
-				return result;
+				$scope.program =  result;
 			});
 		}
 	}
@@ -116,7 +117,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			return result;
 		});
 
-		$scope.reps = $api.getResults($scope.drillId, $scope.user.id).then(function(result) {
+		$api.getResults($scope.drillId, $scope.user.id).then(function(result) {
 			for(var i=0; i<result.length; i++) {
 				var month = 0 === result[i].created_at.substring(5,6) ?
 									result[i].created_at.substring(6,7) :
@@ -136,7 +137,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 				$scope.drillReps = result[0].reps || 0;
 			}
 
-			return result;
+			$scope.reps =  result;
 		});
 
 	}

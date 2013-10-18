@@ -8,7 +8,7 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	<title>Xplode your performance</title>
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script src="http://code.angularjs.org/1.2.0-rc.2/angular.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.0-rc.3/angular.min.js"></script>
 	<script>
 		/* Fallback if the Google CDN is not available. */
 		if (typeof jQuery == 'undefined') {
