@@ -1,7 +1,7 @@
 /*global xplodeApp */
 /* jshint camelcase: false */
 
-xplodeApp.controller('DashboardController', function( $scope, $api, $store ) {
+xplodeApp.controller('DashboardController', function( $scope, $api, $store, $animate ) {
 
 	/**
 	 * Initialize the dashboard controller
@@ -41,7 +41,13 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store ) {
 /*-------------------------------------------------------------------------
 | PUBLIC FUNCTIONS FOR THE HOME CONTROLLER SCOPE
 |------------------------------------------------------------------------*/
+	$scope.revealActions = function($event) {
+		$animate.addClass($($event.target), 'swipe-out');
+	};
 
+	$scope.hideActions = function($event) {
+		$animate.removeClass($(event.target).siblings('.overlay'), 'swipe-out');
+	};
 });
 
 xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, $store ) {
@@ -94,7 +100,7 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 
 // xplodeApp.controller('Day')
 
-xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $store, $utilities ) {
+xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $store, $utilities, $animate ) {
 
 	/**
 	 * Initialize the drill controller
@@ -135,7 +141,6 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			}
 
 			$scope.reps =  result;
-			console.log($scope.reps);
 		});
 
 	}
@@ -146,13 +151,26 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 | PUBLIC FUNCTIONS FOR THE DRILL CONTROLLER SCOPE
 |------------------------------------------------------------------------*/
 
+	$scope.toggleActions = function( action, $event) {
+		if( 'reveal' === action ) {
+			$animate.addClass($($event.target), 'swipe-out');
+		} else if( 'hide' === action ) {
+			if( $($event.target).hasClass('swipe-out') ) {
+				$animate.removeClass($(event.target), 'swipe-out');
+			} else if( $(event.target).siblings('.overlay').hasClass('swipe-out') ) {
+				$animate.removeClass($(event.target).siblings('.overlay'), 'swipe-out');
+			}
+		}
+		return;
+	};
+
 	$scope.addSet = function() {
 
 		var btn = document.getElementById('submit-result');
 		btn.classList.add('sending');
 		btn.value = "Jobbar...";
 
-		$api.results.addSet({
+		$api.results.add({
 			'user_id': $scope.user.id,
 			'drill_id': $scope.drillId,
 			'program_id': $scope.program.id,
@@ -179,5 +197,14 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 			'weight': $scope.drillWeight,
 			'displayDate': 'idag'
 		});
+	};
+
+	$scope.removeSet = function(obj) {
+		console.log($scope.reps);
+		console.log(obj);
+		$api.results.delete(obj.rep.id).then(function(result) {
+			console.log(result);
+		});
+		$scope.reps.splice(obj.$index, 1);
 	};
 });

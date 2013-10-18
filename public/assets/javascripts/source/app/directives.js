@@ -1,5 +1,6 @@
 /*global xplodeApp */
 /*global fastClick */
+/*global angular */
 /* jshint camelcase: false */
 
 xplodeApp.directive('fastClick', function ($parse) {
@@ -52,7 +53,6 @@ xplodeApp.directive('fastClick', function ($parse) {
 			 * setup our fast clicks
 			 */
 			if( is_touch_device() ) {
-
 
 				element.on('touchstart', function (event) {
 					event.stopPropagation();

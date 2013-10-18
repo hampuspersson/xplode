@@ -22,9 +22,14 @@
 	</form>
 	<h3>Dina tidigare set i programmet</h3>
 	<ul class="choices">
-		<li data-ng-repeat="rep in reps | orderBy:'created_at':true">
-			<h2>{{rep.reps}} * {{rep.weight}} kg </h2>
-			<time>{{rep.displayDate}}</time>
+		<li data-ng-repeat="rep in reps | orderBy:'created_at':true" class="swipe-out">
+			<div ng-swipe-left="toggleActions('reveal', $event)" ng-swipe-right="toggleActions('hide', $event)" class="overlay swipe-left">
+				<h2>{{rep.reps}} * {{rep.weight}} kg </h2>
+				<time>{{rep.displayDate}}</time>
+			</div>
+			<div class="actions" ng-swipe-right="toggleActions('hide', $event)">
+				<i class="icon-trash2" ng-click="removeSet(this)"></i>
+			</div>
 		</li>
 	</ul>
 </section>

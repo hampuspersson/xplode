@@ -735,7 +735,6 @@ header .arrow-back:before {
 .choices li {
   cursor: pointer;
   position: relative;
-  padding-bottom: 1.5em;
 }
 .choices li:nth-of-type(n+2) {
   border-top: 1px solid #9443c7;
@@ -745,17 +744,73 @@ header .arrow-back:before {
 }
 .choices li h2 {
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  pointer-events: none;
 }
 .choices li button {
   background: none;
   border: none;
   color: #ffd100;
   position: absolute;
-  right: 0;
+  right: 15px;
   top: 50%;
   padding: 0;
   margin-top: -10px;
+}
+.choices li .overlay, .choices li .actions {
+  margin-right: -15px;
+  margin-left: -15px;
+  padding: 1em;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+.choices li .overlay {
+  padding: 1em;
+  position: relative;
+  background-color: #6c0aab;
+  z-index: 10;
+}
+.choices li .actions {
+  background-color: #f00;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 100%;
+  text-align: right;
+}
+.choices li .actions i {
+  margin-right: 10px;
+  font-size: 2.5em;
+  line-height: 1.5;
+}
+
+.swipe-out.ng-enter,
+.swipe-out.ng-leave {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+
+.swipe-out.ng-enter,
+.swipe-out.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+.swipe-out.ng-leave,
+.swipe-out.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.swipe-left.swipe-out {
+  -webkit-transform: translateX(-90px);
+  -moz-transform: translateX(-90px);
+  -ms-transform: translateX(-90px);
+  -o-transform: translateX(-90px);
+  transform: translateX(-90px);
 }
 
 /*-------------------------------------------------------------------------

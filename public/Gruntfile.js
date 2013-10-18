@@ -68,6 +68,7 @@ module.exports = function(grunt) {
 					'assets/javascripts/main.min.js': [
 						'assets/javascripts/source/main.js',
 						'assets/javascripts/source/app/directives.js',
+						'assets/javascripts/source/app/animations.js',
 						'assets/javascripts/source/app/factories.js',
 						'assets/javascripts/source/app/controllers.js'
 					]
@@ -82,6 +83,7 @@ module.exports = function(grunt) {
 					'build/assets/javascripts/main.min.js': [
 						'assets/javascripts/source/main.js',
 						'assets/javascripts/source/app/directives.js',
+						'assets/javascripts/source/app/animations.js',
 						'assets/javascripts/source/app/factories.js',
 						'assets/javascripts/source/app/controllers.js'
 					],

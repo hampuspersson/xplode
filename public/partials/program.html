@@ -8,9 +8,11 @@
 	<ul class="choices">
 		<li data-ng-repeat="day in program.days">
 			<a href="{{ROUTES}}/#/program/{{program.id}}/day/{{day.id}}">
-				<h2>DAG {{day.id}}</h2>
-				<time>{{day.desc}}</time>
-				<button>▶</button>
+				<div class="overlay">
+					<h2>DAG {{day.id}}</h2>
+					<time>{{day.desc}}</time>
+					<button>▶</button>
+				</div>
 			</a>
 		</li>
 	</ul>

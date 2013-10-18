@@ -8,9 +8,11 @@
 	<ul class="choices">
 		<li data-ng-repeat="drill in program.days[day-1].drills | orderBy: ['prio', 'title']">
 			<a href="{{ROUTES}}/#/drill/{{drill.drill}}/add">
-				<h2>{{drill.title}}</h2>
-				<time>[{{drill.prio}}] - {{drill.sets}}x{{drill.reps}}</time>
-				<button>▶</button>
+				<div class="overlay">
+					<h2>{{drill.title}}</h2>
+					<time>[{{drill.prio}}] - {{drill.sets}}x{{drill.reps}}</time>
+					<button>▶</button>
+				</div>
 			</a>
 		</li>
 	</ul>

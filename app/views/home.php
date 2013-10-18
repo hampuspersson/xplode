@@ -8,7 +8,8 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	<title>Xplode your performance</title>
 	<link rel="stylesheet" href="assets/css/style.css">
-	<script src="http://code.angularjs.org/1.2.0-rc.3/angular.min.js"></script>
+	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/447e88f7d6/UntitledProject1/style.css">
+
 	<script>
 		/* Fallback if the Google CDN is not available. */
 		if (typeof jQuery == 'undefined') {
@@ -20,6 +21,10 @@
 		}
 
 	</script>
+	<script src="assets/components/jquery/jquery.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.0-rc.3/angular.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.0-rc.3/angular-touch.min.js"></script>
+	<script src="http://code.angularjs.org/1.2.0-rc.3/angular-animate.min.js"></script>
 	<script src="assets/javascripts/vendors.min.js"></script>
 	<script src="assets/javascripts/main.min.js?v=1.112"></script>
 </head>

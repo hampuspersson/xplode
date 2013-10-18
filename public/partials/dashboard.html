@@ -6,13 +6,15 @@
 	<h1>{{user.name}}</h1>
 	<div class="programs">
 		<h3>Dina aktiva program:</h3>
+		<p>{{event_type}}</p>
 		<ul class="choices" data-ng-show="programs">
 			<li data-ng-repeat="program in programs" >
 				<a href="{{ROUTES}}/#/program/{{program.id}}">
-					<h2>{{program.title}}</h2>
-					<time>4/10-4/11</time>
-					<button>▶</button>
-				</a>
+					<div class="overlay">
+						<h2>{{program.title}}</h2>
+						<time>4/10-4/11</time>
+						<button>▶</button>
+					</div>
 			</li>
 		</ul>
 	</div>

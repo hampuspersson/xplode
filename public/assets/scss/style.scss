@@ -30,19 +30,19 @@ $color-blue: #317792;
 $color-grey: #7B7B7B;
 $color-lightgrey: #949494; */
 
-$color-primary-1: #6C0AAB;
+$color-primary-1: #6C0AAB; // Purple
 $color-primary-2: #631E8F;
 $color-primary-3: #520583;
 $color-primary-4: #8A2AC7;
 $color-primary-5: #9443C7;
 
-$color-secondary-a-1: #A5EF00;
+$color-secondary-a-1: #A5EF00; // Green
 $color-secondary-a-2: #94C821;
 $color-secondary-a-3: #7FB800;
 $color-secondary-a-4: #B5F428;
 $color-secondary-a-5: #BFF449;
 
-$color-secondary-b-1: #FFD100;
+$color-secondary-b-1: #FFD100; // Gold
 $color-secondary-b-2: #D5B523;
 $color-secondary-b-3: #C4A000;
 $color-secondary-b-4: #FFD82A;
@@ -80,5 +80,6 @@ $senior: new-breakpoint(min-width em(1230, $base-font-size) 12);
 @import "modules/login-form";
 @import "modules/transparent-input";
 @import "modules/choices";
+@import "modules/animations";
 
 @import "pages/add-drill"

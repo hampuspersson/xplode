@@ -88,7 +88,14 @@ class ResultController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$result = Result::destroy($id);
+
+
+		return Response::json(array(
+			'error'	=> false,
+			'data'	=> $result,
+			400
+		));
 	}
 
 }

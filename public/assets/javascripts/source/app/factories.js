@@ -79,83 +79,19 @@ xplodeApp.factory( '$api', function( $http, $store ) {
 				});
 			},
 
-			addSet: function(data) {
+			add: function(data) {
 				return $http.post( apiPrefix('results'), data ).then(function(result) {
 					return result.data;
 				});
 			},
-		},
-/*-------------------------------------------------------------------------
-| Methods relating to the user
-|------------------------------------------------------------------------*/
-		getAllUsers: function() {
-			return $http.get( apiPrefix('users') ).then(function(result) {
-				return result.data;
-			});
-		},
-		getCurrentUser: function(id) {
-			return $http.get( apiPrefix('users', id) ).then(function(result) {
-				return result.data;
-			});
-		},
-		getLoggedInUser: function(id) {
-			return $http.get( apiPrefix('users', '?getLoggedInUser') ).then(function(result) {
-				return result.data;
-			});
-		},
-/*-------------------------------------------------------------------------
-| Methods relating to programs
-|------------------------------------------------------------------------*/
-		getAllPrograms: function() {
-			return $http.get( apiPrefix('programs') ).then(function(result) {
-				return result.data;
-			});
-		},
 
-		getProgram: function(programId) {
-			return $http.get( apiPrefix('programs', programId) ).then(function(result) {
-				return result.data;
-			});
-		},
-
-		getUserPrograms: function(userId) {
-			return $http.get( apiPrefix('programs', '?user='+userId) ).then(function(result) {
-				return result.data;
-			});
-		},
-/*-------------------------------------------------------------------------
-| Methods relating to drills
-|------------------------------------------------------------------------*/
-		getAllDrills: function() {
-			return $http.get( apiPrefix('drills') ).then(function(result) {
-				return result.data;
-			});
-		},
-
-		getDrill: function(drillId) {
-			return $http.get( apiPrefix('drills', drillId) ).then(function(result) {
-				return result.data;
-			});
-		},
-
-		getDrillsInProgram: function(programId) {
-			return $http.get( apiPrefix('drills', '?program='+programId) ).then(function(result) {
-				return result.data;
-			});
-		},
-/*-------------------------------------------------------------------------
-| Methods relating to results
-|------------------------------------------------------------------------*/
-		getResults: function(drillId, userId) {
-			return $http.get( apiPrefix('results', '?drill='+drillId+'&user='+userId) ).then(function(result) {
-				return result.data;
-			});
-		},
-
-		addResult: function(data) {
-			return $http.post( apiPrefix('results'), data ).then(function(result) {
-				return result.data;
-			});
+			delete: function( id ) {
+				console.log(apiPrefix('results', id ));
+				return $http.delete( apiPrefix('results', id ) ).then(function(result) {
+					console.log(result);
+					return result;
+				});
+			},
 		},
 
 	};

@@ -6,7 +6,6 @@
 	li {
 		cursor: pointer;
 		position: relative;
-		padding-bottom: 1.5em;
 
 		&:nth-of-type(n+2) {
 			// margin-top: 1.5em;
@@ -19,7 +18,8 @@
 
 		h2 {
 			text-transform: uppercase;
-			margin-bottom: 10px;
+			margin: 0 0 10px;
+			pointer-events: none;
 		}
 
 		button {
@@ -27,11 +27,42 @@
 			border: none;
 			color: $color-secondary-b-1;
 			position: absolute;
-			right: 0;
+			right: 15px;
 			top: 50%;
 			padding: 0;
 			margin-top: -10px;
 		}
+
+		.overlay, .actions {
+			margin-right: -15px;
+			margin-left: -15px;
+			padding: 1em;
+			@include transition(all .1s ease-out);
+		}
+
+		.overlay {
+			padding: 1em;
+			position: relative;
+			background-color: $color-primary-1;
+			z-index: 10;
+		}
+
+		.actions {
+			background-color: #f00;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+			height: 100%;
+			text-align: right;
+
+			i {
+				margin-right: 10px;
+				font-size: 2.5em;
+				line-height: 1.5;
+			}
+		}
 	}
-	// margin-bottom: 2em;
+
 }

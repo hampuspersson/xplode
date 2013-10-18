@@ -1,0 +1,23 @@
+.swipe-out.ng-enter,
+.swipe-out.ng-leave {
+	-webkit-transition:0.5s linear all;
+	-moz-transition:0.5s linear all;
+	-o-transition:0.5s linear all;
+	transition:0.5s linear all;
+}
+
+.swipe-out.ng-enter,
+.swipe-out.ng-leave.ng-leave-active {
+	opacity:0;
+}
+.swipe-out.ng-leave,
+.swipe-out.ng-enter.ng-enter-active {
+	opacity:1;
+}
+
+.swipe-left {
+	&.swipe-out {
+		@include transform(translateX(-90px));
+		// margin-right: 30% !important;
+	}
+}

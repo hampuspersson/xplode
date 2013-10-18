@@ -10,7 +10,7 @@
 
 "use strict";
 
-var xplodeApp = angular.module('xplodeApp', [ 'ngRoute', 'localStorage' ])
+var xplodeApp = angular.module('xplodeApp', [ 'ngRoute', 'localStorage', 'ngTouch', 'ngAnimate' ])
 	.run(function( $rootScope) {
 		$rootScope.ROUTES = "";
 		// $rootScope.ROUTES = "/xplode/public";
