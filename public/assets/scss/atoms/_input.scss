@@ -4,15 +4,27 @@
 
 input {
 	font-size: 1em;
-	padding: 1.4em 1em;
+	padding: 1em;
 	outline: none;
 	border: 0;
 	border-radius: 0;
 }
 
+.input-group {
+	position: relative;
+}
+
+::-webkit-input-placeholder {
+	font-weight: 300;
+}
+/* Firefox pre-19 */
+:-moz-placeholder { color: red; }
+/* Firefox 19+ */
+::-moz-placeholder { color: red; }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }

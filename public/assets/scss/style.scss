@@ -8,7 +8,7 @@
  * Setup imports and frameworks
  */
 
-@import "../components/normalize-css/normalize";
+@import "../components/reset-scss/reset";
 @import "../components/bourbon/bourbon";
 
 $base-font-size: 16;
@@ -69,15 +69,17 @@ $senior: new-breakpoint(min-width em(1230, $base-font-size) 12);
 
 @import "base";
 
+@import "atoms/accesibility";
 @import "atoms/input";
 @import "atoms/links";
 @import "atoms/section";
 @import "atoms/lists";
 @import "atoms/headings";
 @import "atoms/arrows";
+@import "atoms/logo";
 
 @import "modules/header";
-@import "modules/login-form";
+@import "modules/purple-form";
 @import "modules/transparent-input";
 @import "modules/choices";
 @import "modules/animations";
