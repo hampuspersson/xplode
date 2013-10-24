@@ -12,36 +12,36 @@
   @else if length($query) == 2 {
     @media screen and (nth($query, 1): nth($query, 2)) {
       $default-grid-columns: $grid-columns;
-      $grid-columns: $total-columns;
+      $grid-columns: $total-columns !global;
       @content;
-      $grid-columns: $default-grid-columns;
+      $grid-columns: $default-grid-columns !global;
     }
   }
 
   @else if length($query) == 3 {
     @media screen and (nth($query, 1): nth($query, 2)) {
       $default-grid-columns: $grid-columns;
-      $grid-columns: nth($query, 3);
+      $grid-columns: nth($query, 3) !global;
       @content;
-      $grid-columns: $default-grid-columns;
+      $grid-columns: $default-grid-columns !global;
     }
   }
 
   @else if length($query) == 4 {
     @media screen and (nth($query, 1): nth($query, 2)) and (nth($query, 3): nth($query, 4)) {
       $default-grid-columns: $grid-columns;
-      $grid-columns: $total-columns;
+      $grid-columns: $total-columns !global;
       @content;
-      $grid-columns: $default-grid-columns;
+      $grid-columns: $default-grid-columns !global;
     }
   }
 
   @else if length($query) == 5 {
     @media screen and (nth($query, 1): nth($query, 2)) and (nth($query, 3): nth($query, 4)) {
-      $default-grid-columns: $grid-columns;
+      $default-grid-columns: $grid-columns !global;
       $grid-columns: nth($query, 5);
       @content;
-      $grid-columns: $default-grid-columns;
+      $grid-columns: $default-grid-columns !global;
     }
   }
 

@@ -10,7 +10,7 @@
   @if $container-columns != $grid-columns {
     $parent-columns: $container-columns;
   } @else {
-    $parent-columns: $grid-columns;
+    $parent-columns: $grid-columns !global;
   }
 
   @if $container-display-table == true {
