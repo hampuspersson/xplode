@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
 /*------------------------------------*\
     STYLE.CSS
@@ -518,11 +517,12 @@ table {
 | VARIABLES
 |------------------------------------------------------------------------*/
 /* COLORS */
-/* $color-darkblue: #183845;
-$color-greyblue: #25576B;
-$color-blue: #317792;
-$color-grey: #7B7B7B;
-$color-lightgrey: #949494; */
+/* PURPLE SHADES, FROM LIGHT TO DARK */
+/* GREY SHADES, FROM LIGHT TO DARK */
+/* YELLOW/GOLD SHADES, FROM LIGHT TO DARK */
+/* GREEN SHADES, FROM LIGHT TO DARK */
+/* RED SHADES, FROM LIGHT TO DARK */
+/* COLOR VARS FOR THE APP */
 /* BREAKPOINTS */
 /*-------------------------------------------------------------------------
 | CSS
@@ -538,17 +538,19 @@ $color-lightgrey: #949494; */
  */
 html {
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 body {
-  background-color: #6c0aab;
-  color: #fff;
-  font-size: 16px;
+  background-color: white;
+  color: #2b2340;
   font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
 }
-body.login {
-  background-color: #6c0aab;
-  color: #ddd0f9;
+
+.purple-page {
+  background-color: #684fa7;
+  color: #fff;
 }
 
 img {
@@ -603,7 +605,7 @@ a {
   transition: all 0.1s ease-out;
 }
 a:hover {
-  background-color: #520583;
+  background-color: #efd218;
 }
 
 /*-------------------------------------------------------------------------
@@ -636,7 +638,7 @@ h3 {
   padding-left: 15px;
   padding-right: 15px;
   font-size: 0.9em;
-  border-top: 1px solid #8a2ac7;
+  border-top: 1px solid #684fa7;
   font-style: italic;
 }
 
@@ -661,7 +663,7 @@ h3 {
 header {
   padding-top: 1.5em;
   padding-bottom: 1.5em;
-  background-color: #520583;
+  background-color: #684fa7;
 }
 header a {
   text-decoration: none;
@@ -672,13 +674,13 @@ header a:last-of-type {
 header .arrow-back:after {
   left: -10px;
   border-width: 10px;
-  border-right-color: #520583;
+  border-right-color: #684fa7;
 }
 header .arrow-back:before {
   left: -14px;
   top: -2px;
   border-width: 12px;
-  border-right-color: #ffd100;
+  border-right-color: #684fa7;
 }
 
 /*-------------------------------------------------------------------------
@@ -698,7 +700,7 @@ header .arrow-back:before {
   border-radius: 0;
 }
 .login-form input[type=submit] {
-  background-color: #ffd100;
+  background-color: #684fa7;
 }
 
 /*-------------------------------------------------------------------------
@@ -716,7 +718,7 @@ header .arrow-back:before {
   margin-top: -0.5em;
   left: 0;
   font-size: 1em;
-  color: #9443c7;
+  color: #684fa7;
   z-index: -1;
 }
 .transparent-input input {
@@ -737,7 +739,7 @@ header .arrow-back:before {
   position: relative;
 }
 .choices li:nth-of-type(n+2) {
-  border-top: 1px solid #9443c7;
+  border-top: 1px solid #684fa7;
 }
 .choices li a {
   text-decoration: none;
@@ -750,7 +752,7 @@ header .arrow-back:before {
 .choices li button {
   background: none;
   border: none;
-  color: #ffd100;
+  color: #684fa7;
   position: absolute;
   right: 15px;
   top: 50%;
@@ -768,7 +770,7 @@ header .arrow-back:before {
 .choices li .overlay {
   padding: 1em;
   position: relative;
-  background-color: #6c0aab;
+  background-color: #684fa7;
   z-index: 10;
 }
 .choices li .actions {
@@ -823,16 +825,16 @@ header .arrow-back:before {
 .add-set input[type=submit] {
   margin: 1em 0;
   width: 100%;
-  background-color: #ffd100;
+  background-color: #684fa7;
 }
 .add-set input[type=submit]:hover, .add-set input[type=submit]:focus {
-  background-color: #c4a000;
+  background-color: #684fa7;
 }
 .add-set input[type=submit].sending {
   background-color: #ccc;
 }
 .add-set input[type=submit].success {
-  background-color: #a5ef00;
+  background-color: #684fa7;
 }
 .add-set .change-value {
   width: auto;
