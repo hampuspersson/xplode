@@ -1,4 +1,4 @@
-<!doctype html>
+'<!doctype html>
 <html lang="en" data-ng-app="xplodeApp">
 <head>
 	<meta charset="UTF-8">
@@ -28,5 +28,5 @@
 	<script src="assets/javascripts/vendors.min.js"></script>
 	<script src="assets/javascripts/main.min.js?v=1.112"></script>
 </head>
-<body data-ng-view=""></body>
+<body ng-view=""></body>
 </html>
