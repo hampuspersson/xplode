@@ -12,10 +12,10 @@
 	input[type=submit] {
 		margin: 1em 0;
 		width: 100%;
-		background-color: $color-secondary-b-1;
+		background-color: $c-primary;
 
 		&:hover, &:focus {
-			background-color: $color-secondary-b-3;
+			background-color: $c-primary;
 		}
 
 		&.sending {
@@ -23,7 +23,7 @@
 		}
 
 		&.success {
-			background-color: $color-secondary-a-1;
+			background-color: $c-primary;
 		}
 	}
 

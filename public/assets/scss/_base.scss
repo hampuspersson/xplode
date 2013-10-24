@@ -13,18 +13,19 @@
 
 html {
 	-webkit-font-smoothing: antialiased;
+	font-size: #{$base-font-size}px;
+	line-height: #{$line-height}px;
 }
 
 body {
-	background-color: $color-primary;
-	color: #fff;
-	font-size: #{$base-font-size}px;
+	background-color: $c-bg;
+	color: $c-text;
 	font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif;
+}
 
-	&.login {
-		background-color: $color-primary;
-		color: lighten(#ab8cf1, 15%);
-	}
+.purple-page {
+	background-color: $c-primary;
+	color: #fff;
 }
 
 img {

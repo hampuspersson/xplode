@@ -9,7 +9,7 @@
 
 		&:nth-of-type(n+2) {
 			// margin-top: 1.5em;
-			border-top: 1px solid $color-primary-5;
+			border-top: 1px solid $c-primary;
 		}
 
 		a {
@@ -25,7 +25,7 @@
 		button {
 			background: none;
 			border: none;
-			color: $color-secondary-b-1;
+			color: $c-primary;
 			position: absolute;
 			right: 15px;
 			top: 50%;
@@ -43,7 +43,7 @@
 		.overlay {
 			padding: 1em;
 			position: relative;
-			background-color: $color-primary-1;
+			background-color: $c-primary;
 			z-index: 10;
 		}
 

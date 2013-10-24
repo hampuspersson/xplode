@@ -9,7 +9,7 @@
 		<title>Xplode - Logga in</title>
 		<link rel="stylesheet" href="assets/css/style.css">
 	</head>
-	<body class="login">
+	<body class="purple-page">
 		<section class="login-form">
 			<h1>Logga in</h1>
 			<form method="post" action="<?php URL::to('login'); ?>">

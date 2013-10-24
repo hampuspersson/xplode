@@ -5,7 +5,7 @@
 header {
 	padding-top: 1.5em;
 	padding-bottom: 1.5em;
-	background-color: $color-primary-3;
+	background-color: $c-primary;
 
 	a {
 		text-decoration: none;
@@ -22,14 +22,14 @@ header {
 		&:after {
 			left: -10px;
 			border-width: 10px;
-			border-right-color: $color-primary-3;
+			border-right-color: $c-primary;
 		}
 
 		&:before {
 			left: -14px;
 			top: -2px;
 			border-width: 12px;
-			border-right-color: $color-secondary-b-1; //$color-primary-3;
+			border-right-color: $c-primary; //$c-primary-3;
 		}
 	}
 }

@@ -7,6 +7,6 @@ a {
 	@include transition(all .1s ease-out);
 
 	&:hover {
-		background-color: $color-primary-3;
+		background-color: $c-gold-1;
 	}
 }

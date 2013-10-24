@@ -12,6 +12,7 @@
 @import "../components/bourbon/bourbon";
 
 $base-font-size: 16;
+$line-height: 24;
 $max-width: em(1200, $base-font-size);
 
 @import "../components/neat/neat";
@@ -24,39 +25,38 @@ $max-width: em(1200, $base-font-size);
 
 
 /* COLORS */
-/* $color-darkblue: #183845;
-$color-greyblue: #25576B;
-$color-blue: #317792;
-$color-grey: #7B7B7B;
-$color-lightgrey: #949494; */
 
-$color-primary-1: #6C0AAB; // Purple
-$color-primary-2: #631E8F;
-$color-primary-3: #520583;
-$color-primary-4: #8A2AC7;
-$color-primary-5: #9443C7;
+/* PURPLE SHADES, FROM LIGHT TO DARK */
+$c-purple-1: #684FA7;
+$c-purple-2: #644E9B;
+$c-purple-3: #574584;
+$c-purple-4: #413462;
+$c-purple-5: #2B2340;
 
-$color-secondary-a-1: #A5EF00; // Green
-$color-secondary-a-2: #94C821;
-$color-secondary-a-3: #7FB800;
-$color-secondary-a-4: #B5F428;
-$color-secondary-a-5: #BFF449;
+/* GREY SHADES, FROM LIGHT TO DARK */
+$c-grey-1: #989898;
+$c-grey-2: #7E7E7E;
 
-$color-secondary-b-1: #FFD100; // Gold
-$color-secondary-b-2: #D5B523;
-$color-secondary-b-3: #C4A000;
-$color-secondary-b-4: #FFD82A;
-$color-secondary-b-5: #FFDE4C;
+/* YELLOW/GOLD SHADES, FROM LIGHT TO DARK */
+$c-gold-1: #EFD218;
+$c-gold-2: #DBC113;
 
+/* GREEN SHADES, FROM LIGHT TO DARK */
+$c-green-1: #359A53;
+$c-green-2: #248843;
 
-$color-darkpurple: #271948;
-$color-greypurple: #3C266F;
-$color-purple: #503296;
-$color-grey: #7D7D7D;
-$color-lightgrey: #979797;
+/* RED SHADES, FROM LIGHT TO DARK */
+$c-red-1: #F40012;
+$c-red-2: #C60D1B;
 
-$color-primary: $color-primary-1;
-$color-secondary: $color-lightgrey;
+/* COLOR VARS FOR THE APP */
+$c-bg: #fff;
+$c-text: $c-purple-5;
+$c-text-light: $c-grey-1;
+$c-link: #fff;
+
+$c-primary: $c-purple-1;
+$c-primary-darker: $c-purple-3;
 
 /* BREAKPOINTS */
 $kiddo: new-breakpoint(min-width em(480, $base-font-size) 4);
