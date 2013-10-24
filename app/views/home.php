@@ -1,4 +1,4 @@
-'<!doctype html>
+<!doctype html>
 <html lang="en" data-ng-app="xplodeApp">
 <head>
 	<meta charset="UTF-8">
@@ -8,7 +8,7 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 	<title>Xplode your performance</title>
 	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/447e88f7d6/UntitledProject1/style.css">
+	<link rel="stylesheet" href="http://i.icomoon.io/public/temp/32227fbe35/UntitledProject1/style.css">
 
 	<script>
 		/* Fallback if the Google CDN is not available. */

@@ -1,37 +1,37 @@
 .purple-form {
+	@at-root {
+		#{&}__text, #{&}__submit {
+			width: 100%;
+		}
 
-}
+		#{&}__text {
+			margin-top: 0;
+			background-color: #fff;
+			padding-left: 43px; // Give room for the symbol - hackdelihack!
+		}
 
-.purple-form__text, .purple-form__submit {
-	width: 100%;
-}
+		#{&}__submit {
+			background-color: $c-gold-1;
+			margin-top: #{$line-height/2}px;
+			color: $c-text;
+		}
 
-.purple-form__text {
-	margin-top: 0;
-	background-color: #fff;
-	padding-left: 43px; // Give room for the symbol - hackdelihack!
-}
+		#{&}__secondary {
+			display: block;
+			color: #fff;
+			text-decoration: none;
+			text-align: center;
+			margin-top: 12px;
+			font-style: italic;
+		}
 
-.purple-form__submit {
-	background-color: $c-gold-1;
-	margin-top: #{$line-height/2}px;
-	color: $c-text;
-}
-
-.purple-form__secondary {
-	display: block;
-	color: #fff;
-	text-decoration: none;
-	text-align: center;
-	margin-top: 12px;
-	font-style: italic;
-}
-
-.purple-form__label {
-	position: absolute;
-	top: 50%;
-	margin-top: -7.5px;
-	left: 1.25em;
-	font-size: 13px;
-	color: $c-text;
+		#{&}__label {
+			position: absolute;
+			top: 50%;
+			margin-top: -7.5px; // Half the icon-size
+			left: 1.25em;
+			font-size: 13px;
+			color: $c-text;
+		}
+	}
 }

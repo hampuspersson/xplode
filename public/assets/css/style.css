@@ -234,7 +234,7 @@ img {
   max-width: 100%;
 }
 
-header, section {
+section {
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -267,30 +267,23 @@ header, section {
 /*-------------------------------------------------------------------------
 | STYLING FOR INPUT ELEMENTS
 |------------------------------------------------------------------------*/
-input {
+input, textarea {
   font-size: 1em;
   padding: 1em;
   outline: none;
   border: 0;
   border-radius: 0;
+  /* Prevent mobile safari from styling inputs to its liking */
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 
 .input-group {
   position: relative;
 }
 
-::-webkit-input-placeholder {
-  font-weight: 300;
-}
-
-/* Firefox pre-19 */
-:-moz-placeholder {
-  color: red;
-}
-
-/* Firefox 19+ */
-::-moz-placeholder {
-  color: red;
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder {
+  color: #989898;
 }
 
 input::-webkit-outer-spin-button,
@@ -304,6 +297,18 @@ input::-webkit-inner-spin-button {
 /*-------------------------------------------------------------------------
 | STYLING FOR LINKS
 |------------------------------------------------------------------------*/
+.arrow-back:after {
+  left: -10px;
+  border-width: 10px;
+  border-right-color: #684fa7;
+}
+.arrow-back:before {
+  left: -14px;
+  top: -2px;
+  border-width: 12px;
+  border-right-color: #684fa7;
+}
+
 /*-------------------------------------------------------------------------
 | STYLING FOR SECTIONS
 |------------------------------------------------------------------------*/
@@ -324,6 +329,12 @@ ul, ol {
 /*-------------------------------------------------------------------------
 | STYLING FOR HEADINGS
 |------------------------------------------------------------------------*/
+h2 {
+  font-size: 24px;
+  font-weight: normal;
+  text-align: center;
+}
+
 /*-------------------------------------------------------------------------
 | STYLING FOR ARROWS
 |------------------------------------------------------------------------*/
@@ -348,45 +359,56 @@ ul, ol {
 /*-------------------------------------------------------------------------
 | STYLING FOR HEADERS
 |------------------------------------------------------------------------*/
-header {
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
+header * {
+  color: #fff;
+}
+
+.site-header {
+  position: relative;
+  height: 56px;
   background-color: #684fa7;
 }
-header a {
+.site-header h1 {
+  text-indent: -9999px;
+}
+
+.site-header__logo {
+  position: absolute;
+  height: 48px;
+  top: 4px;
+  left: 50%;
+  margin-left: -22.5px;
+}
+
+.site-header__log-out {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -12px;
+  font-weight: normal;
   text-decoration: none;
 }
-header a:last-of-type {
-  float: right;
-}
-header .arrow-back:after {
-  left: -10px;
-  border-width: 10px;
-  border-right-color: #684fa7;
-}
-header .arrow-back:before {
-  left: -14px;
-  top: -2px;
-  border-width: 12px;
-  border-right-color: #684fa7;
+
+.sub-header {
+  padding: 1em;
+  background-color: #574584;
+  margin-bottom: 24px;
+  text-transform: uppercase;
 }
 
 .purple-form__text, .purple-form__submit {
   width: 100%;
 }
-
 .purple-form__text {
   margin-top: 0;
   background-color: #fff;
   padding-left: 43px;
 }
-
 .purple-form__submit {
   background-color: #efd218;
   margin-top: 12px;
   color: #2b2340;
 }
-
 .purple-form__secondary {
   display: block;
   color: #fff;
@@ -395,7 +417,6 @@ header .arrow-back:before {
   margin-top: 12px;
   font-style: italic;
 }
-
 .purple-form__label {
   position: absolute;
   top: 50%;
@@ -405,6 +426,39 @@ header .arrow-back:before {
   color: #2b2340;
 }
 
+/* .purple-form__text, .purple-form__submit {
+	width: 100%;
+}
+
+.purple-form__text {
+	margin-top: 0;
+	background-color: #fff;
+	padding-left: 43px; // Give room for the symbol - hackdelihack!
+}
+
+.purple-form__submit {
+	background-color: $c-gold-1;
+	margin-top: 12px;
+	color: $c-text;
+}
+
+.purple-form__secondary {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	margin-top: 12px;
+	font-style: italic;
+}
+
+.purple-form__label {
+	position: absolute;
+	top: 50%;
+	margin-top: -7.5px; // Half the icon-size
+	left: 1.25em;
+	font-size: 13px;
+	color: $c-text;
+} */
 /*-------------------------------------------------------------------------
 | STYLING FOR TRANSPARENT INPUT ELEMENTS
 | Used for user input in most screens within the app
@@ -436,22 +490,7 @@ header .arrow-back:before {
 /*-------------------------------------------------------------------------
 | STYLING FOR LIST OF CHOICES
 |------------------------------------------------------------------------*/
-.choices li {
-  cursor: pointer;
-  position: relative;
-}
-.choices li:nth-of-type(n+2) {
-  border-top: 1px solid #684fa7;
-}
-.choices li a {
-  text-decoration: none;
-}
-.choices li h2 {
-  text-transform: uppercase;
-  margin: 0 0 10px;
-  pointer-events: none;
-}
-.choices li button {
+.big-list__disclosure {
   background: none;
   border: none;
   color: #684fa7;
@@ -460,35 +499,6 @@ header .arrow-back:before {
   top: 50%;
   padding: 0;
   margin-top: -10px;
-}
-.choices li .overlay, .choices li .actions {
-  margin-right: -15px;
-  margin-left: -15px;
-  padding: 1em;
-  -webkit-transition: all 0.1s ease-out;
-  -moz-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
-}
-.choices li .overlay {
-  padding: 1em;
-  position: relative;
-  background-color: #684fa7;
-  z-index: 10;
-}
-.choices li .actions {
-  background-color: #f00;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  height: 100%;
-  text-align: right;
-}
-.choices li .actions i {
-  margin-right: 10px;
-  font-size: 2.5em;
-  line-height: 1.5;
 }
 
 .swipe-out.ng-enter,

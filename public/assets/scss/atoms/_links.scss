@@ -1,3 +1,18 @@
 /*-------------------------------------------------------------------------
 | STYLING FOR LINKS
 |------------------------------------------------------------------------*/
+
+.arrow-back {
+	&:after {
+		left: -10px;
+		border-width: 10px;
+		border-right-color: $c-primary;
+	}
+
+	&:before {
+		left: -14px;
+		top: -2px;
+		border-width: 12px;
+		border-right-color: $c-primary; //$c-primary-3;
+	}
+}

@@ -2,25 +2,25 @@
 | STYLING FOR INPUT ELEMENTS
 |------------------------------------------------------------------------*/
 
-input {
+input, textarea {
 	font-size: 1em;
 	padding: 1em;
 	outline: none;
 	border: 0;
 	border-radius: 0;
+
+	/* Prevent mobile safari from styling inputs to its liking */
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
 }
 
 .input-group {
 	position: relative;
 }
 
-::-webkit-input-placeholder {
-	font-weight: 300;
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder {
+	color: $c-grey-1;
 }
-/* Firefox pre-19 */
-:-moz-placeholder { color: red; }
-/* Firefox 19+ */
-::-moz-placeholder { color: red; }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

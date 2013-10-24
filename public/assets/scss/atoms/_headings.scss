@@ -2,3 +2,12 @@
 | STYLING FOR HEADINGS
 |------------------------------------------------------------------------*/
 
+h1 {
+
+}
+
+h2 {
+	font-size: #{$base-font-size*1.5}px;
+	font-weight: normal;
+	text-align: center;
+}

@@ -3,33 +3,39 @@
 |------------------------------------------------------------------------*/
 
 header {
-	padding-top: 1.5em;
-	padding-bottom: 1.5em;
+	* { color: #fff; }
+}
+
+.site-header {
+	position: relative;
+	height: #{$base-font-size*3.5}px;
 	background-color: $c-primary;
 
-	a {
-		text-decoration: none;
-		&:first-of-type {
-			//float: left;
-		}
-
-		&:last-of-type {
-			float: right;
-		}
+	h1 {
+		text-indent: -9999px;
 	}
+}
 
-	.arrow-back {
-		&:after {
-			left: -10px;
-			border-width: 10px;
-			border-right-color: $c-primary;
-		}
+.site-header__logo {
+	position: absolute;
+	height: #{$base-font-size*3.5 - 8}px;
+	top: 4px;
+	left: 50%;
+	margin-left: -22.5px;
+}
 
-		&:before {
-			left: -14px;
-			top: -2px;
-			border-width: 12px;
-			border-right-color: $c-primary; //$c-primary-3;
-		}
-	}
+.site-header__log-out {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -#{$line-height/2}px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.sub-header {
+	padding: 1em;
+	background-color: $c-primary-darker;
+	margin-bottom: #{$line-height}px;
+	text-transform: uppercase;
 }
