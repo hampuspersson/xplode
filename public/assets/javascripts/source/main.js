@@ -1,7 +1,8 @@
 /**
  * Main javascript file for Xplode
+ * Version: 1.0
  * Author: Hampus Persson
- * @hampusp
+ * @hmps_se
  */
 
  /* jshint camelcase: false */
