@@ -1,6 +1,6 @@
 /**
  * Main javascript file for Xplode
- * Version: 1.0
+ * Version: 1.0.2
  * Author: Hampus Persson
  * @hmps_se
  */
@@ -10,15 +10,6 @@
  /*global FastClick*/
 
 "use strict";
-
-// When ready...
-window.addEventListener("load",function() {
-	// Set a timeout...
-	setTimeout(function(){
-		// Hide the address bar!
-		window.scrollTo(0, 1);
-	}, 0);
-});
 
 var xplodeApp = angular.module('xplodeApp', [ 'ngRoute', 'localStorage', 'ngTouch', 'ngAnimate' ])
 	.run(function( $rootScope) {
