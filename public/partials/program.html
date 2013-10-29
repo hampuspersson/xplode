@@ -11,7 +11,7 @@
 <section class="program">
 	<ul class="big-list">
 		<li data-ng-repeat="day in program.days" class="big-list__item" fast-click="go('/program/{{program.id}}/day/{{day.id}}')">
-			<div class="overlay">
+			<div class="big-list__overlay">
 				<p class="big-list__title">DAG {{day.id}}</p>
 				<p class="big-list__label">{{day.desc}}</p>
 			</div>

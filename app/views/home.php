@@ -21,6 +21,8 @@
 		}
 
 	</script>
+
+	<script src="assets/components/jquery/jquery.min.js"></script>
 	<script src="http://code.angularjs.org/1.2.0-rc.3/angular.min.js"></script>
 	<script src="http://code.angularjs.org/1.2.0-rc.3/angular-touch.min.js"></script>
 	<script src="http://code.angularjs.org/1.2.0-rc.3/angular-animate.min.js"></script>

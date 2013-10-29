@@ -1,7 +1,7 @@
 <header>
 	<div class="site-header">
 		<h1><img src="/assets/images/logo-52.png" alt="Xplode logo" class="site-header__logo">Xplode your performance</h1>
-		<a href="" fast-click="go('/program/{{program.id}}/day/{{day}}')" class="site-header__go-back">Välj dag</a>
+		<a href="" fast-click="go('/program/{{program.id}}/day/{{day}}')" class="site-header__go-back">Välj övning</a>
 		<a href="" fast-click="logout();" class="site-header__log-out">Logga ut</a>
 	</div>
 	<div class="sub-header">
@@ -10,29 +10,29 @@
 </header>
 <section>
 	<form data-ng-submit="addSet()" class="add-set white-form">
-		<div class="transparent-input">
-			<label for="inputWeight">Vikt</label>
-			<input type="button" class="change-value" value="+" fast-click="drillWeight = drillWeight+1">
-			<input type="number" id="inputWeight" data-ng-model="drillWeight">
-			<input type="button" class="change-value" data-direction="down" value="-" fast-click="drillWeight = drillWeight-1">
+		<div class="jogger">
+			<input type="button"  class="jogger__button" value="-" fast-click="drillWeight = drillWeight-1">
+			<input type="number" tabindex="1" class="jogger__input" id="inputWeight" data-ng-model="drillWeight">
+			<label for="inputWeight" class="jogger__label">Vikt</label>
+			<input type="button" class="jogger__button" value="+" fast-click="drillWeight = drillWeight+1">
 		</div>
-		<div class="transparent-input">
-			<label for="inputReps">Reps</label>
-			<input type="button" class="change-value" data-direction="up" value="+" fast-click="drillReps = drillReps+1">
-			<input type="number" id="inputReps" data-ng-model="drillReps">
-			<input type="button" class="change-value" data-direction="down" value="-" fast-click="drillReps = drillReps-1">
+		<div class="jogger">
+			<input type="button"  class="jogger__button" value="-" fast-click="drillReps = drillReps-1">
+			<input type="number" tabindex="2" class="jogger__input" id="inputReps" data-ng-model="drillReps">
+			<label for="inputReps" class="jogger__label">Reps</label>
+			<input type="button" class="jogger__button" value="+" fast-click="drillReps = drillReps+1">
 		</div>
-		<input type="submit" id="submit-result" value="Registrera" >
+		<input class="white-form__submit" type="submit" id="submit-result" value="Registrera" >
 	</form>
-	<h3>Dina tidigare set i programmet</h3>
-	<ul class="choices">
-		<li data-ng-repeat="rep in reps | orderBy:'created_at':true" class="swipe-out">
-			<div ng-swipe-left="toggleActions('reveal', $event)" ng-swipe-right="toggleActions('hide', $event)" class="overlay swipe-left">
-				<h2>{{rep.reps}} * {{rep.weight}} kg </h2>
-				<time>{{rep.displayDate}}</time>
+
+	<ul class="big-list">
+		<li data-ng-repeat="rep in reps | orderBy:'created_at':true" class="big-list__item-no-disclosure">
+			<div ng-swipe-left="toggleActions('reveal', $event)" ng-swipe-right="toggleActions('hide', $event)" class="big-list__overlay swipe-left">
+				<p class="big-list__title">{{rep.weight}} x {{rep.reps}}</p>
+				<p class="big-list__label">{{rep.displayDate}}</p>
 			</div>
 			<div class="actions" ng-swipe-right="toggleActions('hide', $event)">
-				<i class="icon-trash2" ng-click="removeSet(this)"></i>
+				<i class="icon-cancel-circled" ng-click="removeSet(this)"></i>
 			</div>
 		</li>
 	</ul>

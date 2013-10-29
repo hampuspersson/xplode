@@ -171,13 +171,17 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 |------------------------------------------------------------------------*/
 
 	$scope.toggleActions = function( action, $event) {
+
 		if( 'reveal' === action ) {
+			console.log('reveal');
+			console.log($event.target);
 			$animate.addClass($($event.target), 'swipe-out');
 		} else if( 'hide' === action ) {
+			console.log('hide');
 			if( $($event.target).hasClass('swipe-out') ) {
 				$animate.removeClass($(event.target), 'swipe-out');
-			} else if( $(event.target).siblings('.overlay').hasClass('swipe-out') ) {
-				$animate.removeClass($(event.target).siblings('.overlay'), 'swipe-out');
+			} else if( $(event.target).siblings('.big-list__overlay').hasClass('swipe-out') ) {
+				$animate.removeClass($(event.target).siblings('.big-list__overlay'), 'swipe-out');
 			}
 		}
 		return;
@@ -233,7 +237,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 
 	$scope.go = function( path ) {
 		console.log(path);
-		//$location.path( path );
+		$location.path( path );
 	};
 
 	$scope.logout = function() {

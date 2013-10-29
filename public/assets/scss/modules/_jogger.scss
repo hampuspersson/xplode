@@ -1,0 +1,59 @@
+/*-------------------------------------------------------------------------
+| STYLING FOR TRANSPARENT INPUT ELEMENTS
+| Used for user input in most screens within the app
+|------------------------------------------------------------------------*/
+
+.jogger {
+	position: relative;
+	margin: 0 -15px;
+	height: 100px;
+	display: inline-block;
+	letter-spacing: -0.2em; // Inline-block hack
+
+	* {
+		letter-spacing: 0;
+	}
+
+	@at-root {
+		#{&}__label {
+			display: block;
+			position: absolute;
+			top: 75%;
+			left: 0;
+			width: 100%;
+			color: #684fa7;
+			text-align: center;
+		}
+
+		#{&}__input {
+			display: inline-block;
+			width: 50%;
+			background: transparent;
+			color: $c-primary;
+			font-size: 3em;
+			padding: 0;
+			text-align: center;
+		}
+
+		#{&}__button {
+			display: inline-block;
+		 	width: 25%;
+		 	font-size: 3em;
+		 	line-height: 100px;
+		 	padding: 0;
+		 	margin: 0;
+		 	background: transparent;
+		 	color: #684fa7;
+
+		 	&:first-of-type {
+		 		text-align: left;
+		 		padding-left: 15px;
+		 	}
+
+		 	&:last-of-type {
+		 		text-align: right;
+		 		padding-right: 15px;
+		 	}
+		}
+	}
+}

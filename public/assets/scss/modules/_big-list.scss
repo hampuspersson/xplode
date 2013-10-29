@@ -4,14 +4,23 @@
 $item-height: 100px;
 
 .big-list {
+	list-style: none;
+
 	* {
 		color: $c-text;
 		text-decoration: none;
 	}
-	list-style: none;
+
+	.big-list__overlay {
+		letter-spacing: -0.2em;
+
+		* {
+			letter-spacing: 0;
+		}
+	}
 
 	@at-root {
-		#{&}__item {
+		#{&}__item, #{&}__item-no-disclosure {
 			cursor: pointer;
 			position: relative;
 			height: $item-height;
@@ -19,28 +28,26 @@ $item-height: 100px;
 			&:not(:last-of-type) {
 				border-bottom: 1px solid $c-purple-1;
 			}
+		}
 
+		#{&}__item {
 			&:after {
-				font-family: 'Xplode';
-				speak: none;
-				font-style: normal;
-				font-weight: normal;
-				font-variant: normal;
-				text-transform: none;
-				line-height: 1;
+				@extend .xplode;
 				color: $c-purple-1;
-
-				/* Better Font Rendering =========== */
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
 				content: "\e806";
 
 				position: absolute;
 				top: 50%;
 				right: 0px;
+
 				/* 'couple of magic numbers here. Fix later... */
 				margin-top: -12px;
 				font-size: 32px;
+				z-index: 11;
+			}
+
+			.big-list__label {
+				padding-right: 1em;
 			}
 		}
 
@@ -49,21 +56,27 @@ $item-height: 100px;
 			display: inline-block;
 			font-weight: normal;
 			margin: 0 0 10px;
+			margin: 0;
 			pointer-events: none;
 			text-align: left;
-			width: 49%;
+			width: 65%;
 			line-height: $item-height;
 			white-space: nowrap;
+			pointer-events: none;
+		}
+
+		#{&}__prio {
+			color: #bbb;
+			padding-right: 5px;
 		}
 
 		#{&}__label {
 			display: inline-block;
 			text-align: right;
-			width: 49%;
-			padding-right: 2em;
-			font-size: .8em;
+			width: 35%;
 			line-height: $item-height;
 			white-space: nowrap;
+			pointer-events: none;
 		}
 
 		#{&}__disclosure {
@@ -77,5 +90,36 @@ $item-height: 100px;
 			margin-top: -0.5em;
 			font-size: 2em;
 		}
+	}
+}
+
+.big-list__overlay, .actions {
+	margin-right: -15px;
+	margin-left: -15px;
+	height: 100%;
+	padding: 0 1em;
+	@include transition(all .1s ease-out);
+}
+
+.big-list__overlay {
+	position: relative;
+	background-color: #fff;
+	z-index: 10;
+}
+
+.actions {
+	background-color: #f00;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	height: 100%;
+	text-align: right;
+
+	i {
+		font-size: 2.5em;
+		color: #fff;
+		line-height: 99px;
 	}
 }

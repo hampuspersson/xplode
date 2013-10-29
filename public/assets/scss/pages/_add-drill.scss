@@ -3,12 +3,6 @@
 |------------------------------------------------------------------------*/
 
 .add-set {
-
-	.transparent-input {
-		float: left;
-		width: 50%;
-	}
-
 	input[type=submit] {
 		margin: 1em 0;
 		width: 100%;
@@ -25,10 +19,5 @@
 		&.success {
 			background-color: $c-primary;
 		}
-	}
-
-	.change-value {
-		width: auto;
-		margin: 0 auto;
 	}
 }

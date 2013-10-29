@@ -255,7 +255,7 @@ section {
 }
 
 /*------------------------------------*\
-    _FONTS.SCSS
+		_FONTS.SCSS
 \*------------------------------------*/
 @font-face {
   font-family: 'xplode';
@@ -268,10 +268,10 @@ section {
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: 'xplode';
-    src: url('../font/xplode.svg?31469070#xplode') format('svg');
-  }
+	@font-face {
+		font-family: 'xplode';
+		src: url('../font/xplode.svg?31469070#xplode') format('svg');
+	}
 }
 */
 [class^="icon-"]:before, [class*=" icon-"]:before {
@@ -324,6 +324,19 @@ section {
 }
 
 /* '' */
+.xplode, .site-header__go-back:after, .big-list__item:after {
+  font-family: 'Xplode';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -460,17 +473,7 @@ header * {
   font-size: 14px;
 }
 .site-header__go-back:after {
-  font-family: 'Xplode';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
   color: #efd218;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   content: "\e805";
   position: absolute;
   top: 50%;
@@ -525,6 +528,36 @@ header * {
   color: #2b2340;
 }
 
+.white-form__text, .white-form__submit {
+  width: 100%;
+}
+.white-form__text {
+  margin-top: 0;
+  background-color: #fff;
+  padding-left: 43px;
+}
+.white-form__submit {
+  background-color: #684fa7;
+  margin-top: 12px;
+  color: #fff;
+}
+.white-form__secondary {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 12px;
+  font-style: italic;
+}
+.white-form__label {
+  position: absolute;
+  top: 50%;
+  margin-top: -7.5px;
+  left: 1em;
+  font-size: 13px;
+  color: #2b2340;
+}
+
 /*-------------------------------------------------------------------------
 | STYLING FOR TRANSPARENT INPUT ELEMENTS
 | Used for user input in most screens within the app
@@ -536,21 +569,71 @@ header * {
 .transparent-input label {
   display: block;
   position: absolute;
-  top: 50%;
+  top: 100%;
   margin-top: -0.5em;
-  left: 0;
+  left: 50%;
   font-size: 1em;
   color: #684fa7;
   z-index: -1;
 }
 .transparent-input input {
-  display: block;
-  width: 100%;
+  display: inline-block;
   background: transparent;
-  color: #fff;
+  color: #684fa7;
   font-size: 3em;
   padding: 0;
   text-align: center;
+}
+
+/*-------------------------------------------------------------------------
+| STYLING FOR TRANSPARENT INPUT ELEMENTS
+| Used for user input in most screens within the app
+|------------------------------------------------------------------------*/
+.jogger {
+  position: relative;
+  margin: 0 -15px;
+  height: 100px;
+  display: inline-block;
+  letter-spacing: -0.2em;
+}
+.jogger * {
+  letter-spacing: 0;
+}
+.jogger__label {
+  display: block;
+  position: absolute;
+  top: 75%;
+  left: 0;
+  width: 100%;
+  color: #684fa7;
+  text-align: center;
+}
+.jogger__input {
+  display: inline-block;
+  width: 50%;
+  background: transparent;
+  color: #684fa7;
+  font-size: 3em;
+  padding: 0;
+  text-align: center;
+}
+.jogger__button {
+  display: inline-block;
+  width: 25%;
+  font-size: 3em;
+  line-height: 100px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  color: #684fa7;
+}
+.jogger__button:first-of-type {
+  text-align: left;
+  padding-left: 15px;
+}
+.jogger__button:last-of-type {
+  text-align: right;
+  padding-right: 15px;
 }
 
 /*-------------------------------------------------------------------------
@@ -563,26 +646,22 @@ header * {
   color: #2b2340;
   text-decoration: none;
 }
-.big-list__item {
+.big-list .big-list__overlay {
+  letter-spacing: -0.2em;
+}
+.big-list .big-list__overlay * {
+  letter-spacing: 0;
+}
+.big-list__item, .big-list__item-no-disclosure {
   cursor: pointer;
   position: relative;
   height: 100px;
 }
-.big-list__item:not(:last-of-type) {
+.big-list__item:not(:last-of-type), .big-list__item-no-disclosure:not(:last-of-type) {
   border-bottom: 1px solid #684fa7;
 }
 .big-list__item:after {
-  font-family: 'Xplode';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
   color: #684fa7;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   content: "\e806";
   position: absolute;
   top: 50%;
@@ -590,26 +669,35 @@ header * {
   /* 'couple of magic numbers here. Fix later... */
   margin-top: -12px;
   font-size: 32px;
+  z-index: 11;
+}
+.big-list__item .big-list__label {
+  padding-right: 1em;
 }
 .big-list__title {
   font-size: 1.5em;
   display: inline-block;
   font-weight: normal;
   margin: 0 0 10px;
+  margin: 0;
   pointer-events: none;
   text-align: left;
-  width: 49%;
+  width: 65%;
   line-height: 100px;
   white-space: nowrap;
+  pointer-events: none;
+}
+.big-list__prio {
+  color: #bbb;
+  padding-right: 5px;
 }
 .big-list__label {
   display: inline-block;
   text-align: right;
-  width: 49%;
-  padding-right: 2em;
-  font-size: .8em;
+  width: 35%;
   line-height: 100px;
   white-space: nowrap;
+  pointer-events: none;
 }
 .big-list__disclosure {
   background: none;
@@ -621,6 +709,38 @@ header * {
   padding: 0;
   margin-top: -0.5em;
   font-size: 2em;
+}
+
+.big-list__overlay, .actions {
+  margin-right: -15px;
+  margin-left: -15px;
+  height: 100%;
+  padding: 0 1em;
+  -webkit-transition: all 0.1s ease-out;
+  -moz-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+}
+
+.big-list__overlay {
+  position: relative;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.actions {
+  background-color: #f00;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 100%;
+  text-align: right;
+}
+.actions i {
+  font-size: 2.5em;
+  color: #fff;
+  line-height: 99px;
 }
 
 .swipe-out.ng-enter,
@@ -652,10 +772,6 @@ header * {
 /*-------------------------------------------------------------------------
 | STYLING FOR THE ADD DRILL PAGE
 |------------------------------------------------------------------------*/
-.add-set .transparent-input {
-  float: left;
-  width: 50%;
-}
 .add-set input[type=submit] {
   margin: 1em 0;
   width: 100%;
@@ -669,10 +785,6 @@ header * {
 }
 .add-set input[type=submit].success {
   background-color: #684fa7;
-}
-.add-set .change-value {
-  width: auto;
-  margin: 0 auto;
 }
 
 /*# sourceMappingURL=style.css.map */

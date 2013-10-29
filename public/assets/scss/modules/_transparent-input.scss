@@ -10,19 +10,18 @@
 	label {
 		display: block;
 		position: absolute;
-		top: 50%;
+		top: 100%;
 		margin-top: -0.5em;
-		left: 0;
+		left: 50%;
 		font-size: 1em;
 		color: $c-primary;
 		z-index: -1;
 	}
 
 	input {
-		display: block;
-		width: 100%;
+		display: inline-block;
 		background: transparent;
-		color: #fff;
+		color: $c-primary;
 		font-size: 3em;
 		padding: 0;
 		text-align: center;

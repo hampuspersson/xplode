@@ -35,23 +35,14 @@ header {
 			font-size: 14px;
 
 			&:after {
-				font-family: 'Xplode';
-				speak: none;
-				font-style: normal;
-				font-weight: normal;
-				font-variant: normal;
-				text-transform: none;
-				line-height: 1;
+				@extend .xplode;
 				color: $c-gold-1;
-
-				/* Better Font Rendering =========== */
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
 				content: "\e805";
 
 				position: absolute;
 				top: 50%;
 				left: 0px;
+
 				/* 'couple of magic numbers here. Fix later... */
 				margin-top: -16px;
 				font-size: 32px;
