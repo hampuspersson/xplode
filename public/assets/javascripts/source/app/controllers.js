@@ -1,7 +1,7 @@
 /*global xplodeApp */
 /* jshint camelcase: false */
 
-xplodeApp.controller('DashboardController', function( $scope, $api, $store, $animate ) {
+xplodeApp.controller('DashboardController', function( $scope, $api, $store, $animate, $location ) {
 
 	/**
 	 * Initialize the dashboard controller
@@ -23,6 +23,9 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store, $ani
 				$store.set('user', result);
 
 				$api.programs.getUser($scope.currentUserId).then(function(result) {
+					if( 2 > result.programs.length ) {
+						$location.path( '/program/' + result.programs[0].id );
+					}
 					var user = $store.get('user');
 					user.programs = result.programs;
 
@@ -48,9 +51,17 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store, $ani
 	$scope.hideActions = function($event) {
 		$animate.removeClass($(event.target).siblings('.overlay'), 'swipe-out');
 	};
+
+	$scope.go = function( path ) {
+		$location.path( path );
+	};
+
+	$scope.logout = function() {
+		$utilities.logOut($scope.ROUTES);
+	}
 });
 
-xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, $store ) {
+xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, $store, $location, $utilities ) {
 
 	/**
 	 * Initialize the program controller
@@ -64,7 +75,6 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 		} else {
 			// If a specific day is not asked for we can not continue.
 		}
-
 
 		if( $store.get('user') ) {
 			$scope.user = $store.get('user');
@@ -96,11 +106,20 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 | PUBLIC FUNCTIONS FOR THE PROGRAM CONTROLLER SCOPE
 |------------------------------------------------------------------------*/
 
+	$scope.go = function( path ) {
+		console.log(path);
+		$location.path( path );
+	};
+
+	$scope.logout = function() {
+		$utilities.logOut($scope.ROUTES);
+	}
+
 });
 
 // xplodeApp.controller('Day')
 
-xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $store, $utilities, $animate ) {
+xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $store, $utilities, $animate, $location ) {
 
 	/**
 	 * Initialize the drill controller
@@ -211,4 +230,13 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 		});
 		$scope.reps.splice(obj.$index, 1);
 	};
+
+	$scope.go = function( path ) {
+		console.log(path);
+		//$location.path( path );
+	};
+
+	$scope.logout = function() {
+		$utilities.logOut($scope.ROUTES);
+	}
 });

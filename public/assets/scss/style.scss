@@ -68,6 +68,7 @@ $senior: new-breakpoint(min-width em(1230, $base-font-size) 12);
 |------------------------------------------------------------------------*/
 
 @import "base";
+@import "fonts";
 
 @import "atoms/accesibility";
 @import "atoms/input";

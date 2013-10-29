@@ -124,6 +124,12 @@ xplodeApp.factory('$utilities', function() {
 			};
 
 			return obj.year + "-" + obj.month + "-" + obj.day + " " + obj.hours + ":" + obj.minutes + ":" + obj.seconds;
+		},
+
+		logOut: function(route) {
+			if( confirm('Vill du verkligen logga ut?') ) {
+				window.location.href = route + '/logout';
+			}
 		}
 	};
 });

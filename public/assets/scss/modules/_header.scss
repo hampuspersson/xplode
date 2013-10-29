@@ -14,28 +14,64 @@ header {
 	h1 {
 		text-indent: -9999px;
 	}
-}
 
-.site-header__logo {
-	position: absolute;
-	height: #{$base-font-size*3.5 - 8}px;
-	top: 4px;
-	left: 50%;
-	margin-left: -22.5px;
-}
+	@at-root {
+		#{&}__logo {
+			position: absolute;
+			height: #{$base-font-size*3.5 - 8}px;
+			top: 4px;
+			left: 50%;
+			margin-left: -22.5px;
+		}
 
-.site-header__log-out {
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	margin-top: -#{$line-height/2}px;
-	font-weight: normal;
-	text-decoration: none;
+		#{&}__go-back {
+			position: absolute;
+			left: 10px;
+			top: 50%;
+			padding-left: 16px;
+			margin-top: -8px;
+			font-weight: normal;
+			text-decoration: none;
+			font-size: 14px;
+
+			&:after {
+				font-family: 'Xplode';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				color: $c-gold-1;
+
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				content: "\e805";
+
+				position: absolute;
+				top: 50%;
+				left: 0px;
+				/* 'couple of magic numbers here. Fix later... */
+				margin-top: -16px;
+				font-size: 32px;
+			}
+		}
+
+		#{&}__log-out {
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			margin-top: -8px;
+			font-weight: normal;
+			text-decoration: none;
+			font-size: 14px;
+		}
+	}
 }
 
 .sub-header {
 	padding: 1em;
 	background-color: $c-primary-darker;
-	margin-bottom: #{$line-height}px;
 	text-transform: uppercase;
 }

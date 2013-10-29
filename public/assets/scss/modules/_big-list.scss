@@ -1,0 +1,81 @@
+/*-------------------------------------------------------------------------
+| STYLING FOR LIST OF CHOICES
+|------------------------------------------------------------------------*/
+$item-height: 100px;
+
+.big-list {
+	* {
+		color: $c-text;
+		text-decoration: none;
+	}
+	list-style: none;
+
+	@at-root {
+		#{&}__item {
+			cursor: pointer;
+			position: relative;
+			height: $item-height;
+
+			&:not(:last-of-type) {
+				border-bottom: 1px solid $c-purple-1;
+			}
+
+			&:after {
+				font-family: 'Xplode';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				color: $c-purple-1;
+
+				/* Better Font Rendering =========== */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				content: "\e806";
+
+				position: absolute;
+				top: 50%;
+				right: 0px;
+				/* 'couple of magic numbers here. Fix later... */
+				margin-top: -12px;
+				font-size: 32px;
+			}
+		}
+
+		#{&}__title {
+			font-size: 1.5em;
+			display: inline-block;
+			font-weight: normal;
+			margin: 0 0 10px;
+			pointer-events: none;
+			text-align: left;
+			width: 49%;
+			line-height: $item-height;
+			white-space: nowrap;
+		}
+
+		#{&}__label {
+			display: inline-block;
+			text-align: right;
+			width: 49%;
+			padding-right: 2em;
+			font-size: .8em;
+			line-height: $item-height;
+			white-space: nowrap;
+		}
+
+		#{&}__disclosure {
+			background: none;
+			border: none;
+			color: $c-primary;
+			position: absolute;
+			right: 0;
+			top: 50%;
+			padding: 0;
+			margin-top: -0.5em;
+			font-size: 2em;
+		}
+	}
+}

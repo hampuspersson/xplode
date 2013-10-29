@@ -8,7 +8,6 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<title>Xplode - Logga in</title>
 		<link rel="stylesheet" href="/assets/css/style.css">
-		<link rel="stylesheet" href="http://i.icomoon.io/public/temp/cd2d187c8b/UntitledProject1/style.css">
 	</head>
 	<body class="purple-page">
 		<img src="assets/images/xplode-logo.png" alt="The Xplode logo" class="logo__large-centered">

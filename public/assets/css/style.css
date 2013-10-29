@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
 /*------------------------------------*\
     STYLE.CSS
@@ -253,6 +254,76 @@ section {
   clear: both;
 }
 
+/*------------------------------------*\
+    _FONTS.SCSS
+\*------------------------------------*/
+@font-face {
+  font-family: 'xplode';
+  src: url("../font/xplode.eot?31469070");
+  src: url("../font/xplode.eot?31469070#iefix") format("embedded-opentype"), url("../font/xplode.woff?31469070") format("woff"), url("../font/xplode.ttf?31469070") format("truetype"), url("../font/xplode.svg?31469070#xplode") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'xplode';
+    src: url('../font/xplode.svg?31469070#xplode') format('svg');
+  }
+}
+*/
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "xplode";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-user:before {
+  content: '\e800';
+}
+
+/* '' */
+.icon-cancel-circled:before {
+  content: '\e801';
+}
+
+/* '' */
+.icon-lock:before {
+  content: '\e802';
+}
+
+/* '' */
+.icon-left-open-mini:before {
+  content: '\e805';
+}
+
+/* '' */
+.icon-right-open-mini:before {
+  content: '\e806';
+}
+
+/* '' */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -371,7 +442,6 @@ header * {
 .site-header h1 {
   text-indent: -9999px;
 }
-
 .site-header__logo {
   position: absolute;
   height: 48px;
@@ -379,20 +449,49 @@ header * {
   left: 50%;
   margin-left: -22.5px;
 }
-
+.site-header__go-back {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  padding-left: 16px;
+  margin-top: -8px;
+  font-weight: normal;
+  text-decoration: none;
+  font-size: 14px;
+}
+.site-header__go-back:after {
+  font-family: 'Xplode';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  color: #efd218;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e805";
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  /* 'couple of magic numbers here. Fix later... */
+  margin-top: -16px;
+  font-size: 32px;
+}
 .site-header__log-out {
   position: absolute;
   right: 10px;
   top: 50%;
-  margin-top: -12px;
+  margin-top: -8px;
   font-weight: normal;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .sub-header {
   padding: 1em;
   background-color: #574584;
-  margin-bottom: 24px;
   text-transform: uppercase;
 }
 
@@ -421,44 +520,11 @@ header * {
   position: absolute;
   top: 50%;
   margin-top: -7.5px;
-  left: 1.25em;
+  left: 1em;
   font-size: 13px;
   color: #2b2340;
 }
 
-/* .purple-form__text, .purple-form__submit {
-	width: 100%;
-}
-
-.purple-form__text {
-	margin-top: 0;
-	background-color: #fff;
-	padding-left: 43px; // Give room for the symbol - hackdelihack!
-}
-
-.purple-form__submit {
-	background-color: $c-gold-1;
-	margin-top: 12px;
-	color: $c-text;
-}
-
-.purple-form__secondary {
-	display: block;
-	color: #fff;
-	text-decoration: none;
-	text-align: center;
-	margin-top: 12px;
-	font-style: italic;
-}
-
-.purple-form__label {
-	position: absolute;
-	top: 50%;
-	margin-top: -7.5px; // Half the icon-size
-	left: 1.25em;
-	font-size: 13px;
-	color: $c-text;
-} */
 /*-------------------------------------------------------------------------
 | STYLING FOR TRANSPARENT INPUT ELEMENTS
 | Used for user input in most screens within the app
@@ -490,15 +556,71 @@ header * {
 /*-------------------------------------------------------------------------
 | STYLING FOR LIST OF CHOICES
 |------------------------------------------------------------------------*/
+.big-list {
+  list-style: none;
+}
+.big-list * {
+  color: #2b2340;
+  text-decoration: none;
+}
+.big-list__item {
+  cursor: pointer;
+  position: relative;
+  height: 100px;
+}
+.big-list__item:not(:last-of-type) {
+  border-bottom: 1px solid #684fa7;
+}
+.big-list__item:after {
+  font-family: 'Xplode';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  color: #684fa7;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e806";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  /* 'couple of magic numbers here. Fix later... */
+  margin-top: -12px;
+  font-size: 32px;
+}
+.big-list__title {
+  font-size: 1.5em;
+  display: inline-block;
+  font-weight: normal;
+  margin: 0 0 10px;
+  pointer-events: none;
+  text-align: left;
+  width: 49%;
+  line-height: 100px;
+  white-space: nowrap;
+}
+.big-list__label {
+  display: inline-block;
+  text-align: right;
+  width: 49%;
+  padding-right: 2em;
+  font-size: .8em;
+  line-height: 100px;
+  white-space: nowrap;
+}
 .big-list__disclosure {
   background: none;
   border: none;
   color: #684fa7;
   position: absolute;
-  right: 15px;
+  right: 0;
   top: 50%;
   padding: 0;
-  margin-top: -10px;
+  margin-top: -0.5em;
+  font-size: 2em;
 }
 
 .swipe-out.ng-enter,

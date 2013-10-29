@@ -1,19 +1,20 @@
 <header>
-	<a class="arrow arrow-back" href="{{ROUTES}}/">Välj program</a>
-	<a href="{{ROUTES}}/logout">Logga ut</a>
+	<div class="site-header">
+		<h1><img src="/assets/images/logo-52.png" alt="Xplode logo" class="site-header__logo">Xplode your performance</h1>
+		<a href="" fast-click="go('/')" class="site-header__go-back">Välj program</a>
+		<a href="" fast-click="logout();" class="site-header__log-out">Logga ut</a>
+	</div>
+	<div class="sub-header">
+		<h2>{{program.title}}</h2>
+	</div>
 </header>
 <section class="program">
-	<h1>{{program.title}}</h1>
-	<h3>Välj dag av programmet</h3>
-	<ul class="choices">
-		<li data-ng-repeat="day in program.days">
-			<a href="{{ROUTES}}/#/program/{{program.id}}/day/{{day.id}}">
-				<div class="overlay">
-					<h2>DAG {{day.id}}</h2>
-					<time>{{day.desc}}</time>
-					<button>▶</button>
-				</div>
-			</a>
+	<ul class="big-list">
+		<li data-ng-repeat="day in program.days" class="big-list__item" fast-click="go('/program/{{program.id}}/day/{{day.id}}')">
+			<div class="overlay">
+				<p class="big-list__title">DAG {{day.id}}</p>
+				<p class="big-list__label">{{day.desc}}</p>
+			</div>
 		</li>
 	</ul>
 </section>

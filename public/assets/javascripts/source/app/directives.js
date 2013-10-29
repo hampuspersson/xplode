@@ -67,6 +67,7 @@ xplodeApp.directive('fastClick', function ($parse) {
 
 				element.on('touchend', function (event) {
 					event.stopPropagation();
+					event.preventDefault();
 					clickFunction();
 				});
 
