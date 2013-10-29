@@ -1,7 +1,7 @@
 /*global xplodeApp */
 /* jshint camelcase: false */
 
-xplodeApp.controller('DashboardController', function( $scope, $api, $store, $animate, $location ) {
+xplodeApp.controller('DashboardController', function( $scope, $api, $store, $animate, $location, $utilities ) {
 
 	/**
 	 * Initialize the dashboard controller
@@ -34,8 +34,6 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store, $ani
 
 				$scope.user = result;
 			});
-
-
 		});
 	}
 
@@ -58,8 +56,12 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store, $ani
 
 	$scope.logout = function() {
 		$utilities.logOut($scope.ROUTES);
-	}
+	};
 });
+
+
+
+
 
 xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, $store, $location, $utilities ) {
 
@@ -113,7 +115,7 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 
 	$scope.logout = function() {
 		$utilities.logOut($scope.ROUTES);
-	}
+	};
 
 });
 
@@ -242,5 +244,5 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 
 	$scope.logout = function() {
 		$utilities.logOut($scope.ROUTES);
-	}
+	};
 });

@@ -56,7 +56,6 @@ xplodeApp.directive('fastClick', function ($parse) {
 
 				element.on('touchstart', function (event) {
 					event.stopPropagation();
-					console.log(event);
 
 					var touches = event.originalEvent.touches;
 
@@ -73,9 +72,6 @@ xplodeApp.directive('fastClick', function ($parse) {
 				});
 
 				element.on('touchmove', function (event) {
-					console.log('moving');
-					console.log(canceled);
-					console.log(event);
 					var touches = event.originalEvent.touches;
 
 					// handles the case where we've swiped on a button

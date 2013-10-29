@@ -7,7 +7,7 @@
 		<meta name="apple-mobile-web-app-title" content="Xplode">
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<title>Xplode - Logga in</title>
-		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body class="purple-page">
 		<img src="assets/images/xplode-logo.png" alt="The Xplode logo" class="logo__large-centered">
