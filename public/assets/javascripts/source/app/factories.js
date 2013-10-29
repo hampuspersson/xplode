@@ -1,4 +1,5 @@
 /*global xplodeApp */
+/*global confirm */
 
 /*-------------------------------------------------------------------------
 | FACTORIES FOR API CALLS
