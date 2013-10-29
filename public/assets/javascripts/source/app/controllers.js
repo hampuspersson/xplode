@@ -34,8 +34,6 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store, $ani
 
 				$scope.user = result;
 			});
-
-
 		});
 	}
 
@@ -60,6 +58,10 @@ xplodeApp.controller('DashboardController', function( $scope, $api, $store, $ani
 		$utilities.logOut($scope.ROUTES);
 	}
 });
+
+
+
+
 
 xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, $store, $location, $utilities ) {
 
