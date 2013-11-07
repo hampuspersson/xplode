@@ -498,7 +498,16 @@ header * {
 .sub-header {
   padding: 1em;
   background-color: #574584;
+}
+.sub-header a {
+  text-decoration: none;
+}
+.sub-header h2 {
   text-transform: uppercase;
+}
+.sub-header p {
+  text-align: center;
+  font-style: italic;
 }
 
 .purple-form__text, .purple-form__submit {

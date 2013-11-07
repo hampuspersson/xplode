@@ -64,5 +64,17 @@ header {
 .sub-header {
 	padding: 1em;
 	background-color: $c-primary-darker;
-	text-transform: uppercase;
+
+	a {
+		text-decoration: none;
+	}
+
+	h2 {
+		text-transform: uppercase;
+	}
+
+	p {
+		text-align: center;
+		font-style: italic;
+	}
 }
