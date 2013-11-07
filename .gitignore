@@ -1,3 +1,5 @@
+.ftppass
+.jshintrc
 .sass-cache/
 build/
 node_modules/
