@@ -108,8 +108,12 @@ xplodeApp.controller('ProgramController', function( $scope, $routeParams, $api, 
 | PUBLIC FUNCTIONS FOR THE PROGRAM CONTROLLER SCOPE
 |------------------------------------------------------------------------*/
 
-	$scope.go = function( path ) {
-		console.log(path);
+	$scope.go = function( path, sets, reps ) {
+		console.log(sets);
+		if( sets > 0 ) {
+			reps = sets + "x" + reps;
+		}
+		$store.set('drill-reps', reps);
 		$location.path( path );
 	};
 
@@ -132,6 +136,8 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 		$scope.user = $store.get('user');
 		$scope.program = $store.get('program');
 		$scope.day = $store.get('day');
+
+		$scope.doThis = $store.get('drill-reps');
 
 		$scope.drillReps = 0;
 		$scope.drillWeight = 0;
@@ -238,7 +244,7 @@ xplodeApp.controller('DrillController', function( $scope, $routeParams, $api, $s
 	};
 
 	$scope.go = function( path ) {
-		console.log(path);
+		$scope.drillReps = "Hampus";
 		$location.path( path );
 	};
 

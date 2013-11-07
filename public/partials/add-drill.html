@@ -5,10 +5,12 @@
 		<a href="" fast-click="logout();" class="site-header__log-out">Logga ut</a>
 	</div>
 	<div class="sub-header">
-		<h2>{{drill.title}}</h2>
+		<h2><a href="http://m.styrkeprogrammet.se/m/ovning/{{drill.sp_id}}" target="_blank">{{drill.title}}</a></h2>
+		<p>{{drill.description}}</p>
 	</div>
 </header>
 <section>
+	<p style="text-align: center; padding-top: 1em; font-weight: bold;">{{doThis}}</p>
 	<form data-ng-submit="addSet()" class="add-set white-form">
 		<div class="jogger">
 			<input type="button"  class="jogger__button" value="-" fast-click="drillWeight = drillWeight-1">

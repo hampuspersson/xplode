@@ -5,15 +5,15 @@
 		<a href="" fast-click="logout();" class="site-header__log-out">Logga ut</a>
 	</div>
 	<div class="sub-header">
-		<h2>{{program.title}}{{" dag " + day}}</h2>
+		<h2>{{program.title}} - {{" dag " + day}}</h2>
 	</div>
 </header>
 <section class="program">
 	<ul class="big-list">
-		<li data-ng-repeat="drill in program.days[day-1].drills | orderBy: ['prio', 'title']" class="big-list__item" fast-click="go('/drill/{{drill.drill}}/add')">
+		<li data-ng-repeat="drill in program.days[day-1].drills | orderBy: ['prio', 'title']" class="big-list__item" fast-click="go('/drill/{{drill.drill}}/add', '{{drill.sets}}', '{{drill.reps}}')">
 			<div class="big-list__overlay">
 				<p class="big-list__title"><span class="big-list__prio">{{drill.prio}}</span>{{drill.title}}</p>
-				<p class="big-list__label">{{drill.sets}}x{{drill.reps}}</p>
+				<p class="big-list__label"><span ng-show="drill.sets">{{drill.sets}}x</span>{{drill.reps}}</p>
 			</div>
 		</li>
 	</ul>
